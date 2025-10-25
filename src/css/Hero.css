@@ -1,0 +1,145 @@
+.landing-page {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.fade-transition {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 260px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, #f9f9f9 90%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.video-overlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(7, 7, 7, 0.6)
+  );
+  z-index: 1;
+}
+
+.content-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+.content-overlay h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.content-overlay h5 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons .btn {
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.hero-buttons .btn.primary {
+  background-color: #c56c29;
+}
+
+.hero-buttons .btn.secondary {
+  background-color: #444;
+}
+
+.hero-buttons .btn:hover {
+  opacity: 0.9;
+}
+
+.brand_name_hero {
+  color: #ba4a1c;
+  border: 0.5px solid #ba4a1c;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.3);
+  animation: fadeSlide 1s ease-out forwards;
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-text {
+  animation: fadeSlide 1s ease-out forwards;
+}
+
+/* ✅ Mobile responsiveness */
+@media (max-width: 768px) {
+  .content-overlay {
+    padding: 1rem;
+  }
+
+  .content-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .content-overlay h5 {
+    font-size: 1.1rem;
+  }
+
+  .brand_name_hero {
+    font-size: 1.6rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-overlay h1 {
+    font-size: 1.6rem;
+  }
+
+  .content-overlay h5 {
+    font-size: 1rem;
+  }
+
+  .brand_name_hero {
+    font-size: 1.3rem;
+    padding: 0.3rem 0.6rem;
+  }
+}

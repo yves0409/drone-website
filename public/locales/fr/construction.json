@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "title": "Inspection de chantiers par drone – SkyPix Belgique",
+    "description": "Suivez l’avancement de vos chantiers grâce aux inspections aériennes de haute précision de SkyPix.",
+    "keywords": "drone chantier, inspection infrastructure, drone construction Belgique",
+    "canonical": "https://www.skypix.be/fr/services/construction"
+  },
+  "construction_title": "Inspections de Chantier & d’Infrastructure",
+  "construction_subtitle": "Des inspections plus sûres, plus rapides et plus précises — grâce aux drones.",
+  "construction_intro": "Chez SkyPix, nous proposons des services d'inspection aérienne adaptés aux secteurs de la construction et de l'infrastructure. Nos drones capturent des images haute résolution de zones difficiles d'accès — pour une meilleure prise de décision, une sécurité renforcée et une meilleure efficacité.",
+  "construction_list_intro": "Nous réalisons des inspections de :",
+  "construction_point_1": "Toits et structures en hauteur",
+  "construction_point_2": "Immeubles de grande hauteur et façades",
+  "construction_point_3": "Éoliennes et installations solaires",
+  "construction_point_4": "Ponts, tours et sites industriels",
+  "construction_closing": "Grâce à la surveillance en direct, aux caméras à zoom et à l’imagerie thermique (sur demande), nous fournissons des données fiables sans exposer les travailleurs à des risques ni retarder les délais.",
+  "inspection_title": "Inspections par drone",
+  "inspection_subtitle": "Des inspections sûres, rapides et haute résolution pour les chantiers et les zones difficiles d'accès.",
+  "what_we_inspect": "Ce que nous inspectons",
+  "construction_sites": "Chantiers de construction",
+  "construction_desc": "Surveillez l'avancement, la logistique et la sécurité depuis les airs.",
+  "building_facades": "Façades de bâtiments",
+  "building_desc": "Inspectez les toits et les façades sans échafaudage.",
+  "remote_areas": "Zones isolées",
+  "remote_desc": "Accédez facilement aux zones escarpées ou inaccessibles.",
+  "industrial_equipment": "Équipements industriels",
+  "industrial_desc": "Examinez les grues, réservoirs ou tours en toute sécurité."
+}

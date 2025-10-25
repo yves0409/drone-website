@@ -1,0 +1,68 @@
+.mission-section {
+  position: relative;
+}
+
+.mission-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+}
+
+.mission-content {
+  z-index: 2;
+}
+
+.icon-box {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  height: 100%;
+}
+
+.icon-drone {
+  font-size: 2.5rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  color: #c56c29;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ✅ Mobile responsiveness */
+@media (max-width: 768px) {
+  .mission-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .icon-drone {
+    font-size: 2rem;
+  }
+
+  .mission-content h1 {
+    font-size: 2rem;
+  }
+
+  .mission-content p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .icon-box {
+    margin-bottom: 1.5rem;
+  }
+
+  .row.g-5 > .col-md-4 {
+    width: 100%;
+  }
+}

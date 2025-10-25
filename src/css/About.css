@@ -1,0 +1,85 @@
+.about-section {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+  background-color: #000;
+}
+
+.about-bg {
+  background: url("../assets/hero.png") center center / cover no-repeat;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.about-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 2;
+}
+
+.about-section .container {
+  position: relative;
+  z-index: 3;
+}
+
+.about-img {
+  max-height: 600px;
+  width: 100%;
+  object-fit: contain;
+  max-width: 90%;
+  border-radius: 8%;
+  -webkit-border-radius: 8%;
+  -moz-border-radius: 8%;
+  -ms-border-radius: 8%;
+  -o-border-radius: 8%;
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 60px 0;
+  }
+
+  .about-img {
+    max-height: 350px;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .about-section h2 {
+    font-size: 1.75rem;
+  }
+
+  .about-section p {
+    font-size: 1rem;
+  }
+
+  .about-section .d-flex.flex-wrap {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+}
+
+.about-text-column {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .about-text-column {
+    text-align: center;
+  }
+
+  .about-text-column h2,
+  .about-text-column h6,
+  .about-text-column p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-text-column .d-flex.flex-wrap {
+    justify-content: center;
+  }
+}

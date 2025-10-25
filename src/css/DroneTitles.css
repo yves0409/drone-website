@@ -1,0 +1,52 @@
+.drone-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+/* === Drone Icon === */
+.drone-svg {
+  width: 64px;
+  height: auto;
+  animation: float 3s ease-in-out infinite;
+  color: white; /* if it's an inline SVG with fill="currentColor" */
+}
+
+/* === Title Styling === */
+.drone-title span {
+  margin-top: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: normal;
+  text-transform: none;
+  color: #070707;
+  position: relative;
+}
+
+.drone-title::before {
+  content: "🪢";
+  display: block;
+  height: 40px;
+  width: 4px;
+  background-color: currentColor !important;
+  /* position: static; */
+  position: relative;
+  left: 135px;
+}
+
+/* === Optional Floating Drone Animation === */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.title-text {
+  position: relative;
+  color: #070605; /* or any color you want the rope to follow */
+}

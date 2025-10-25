@@ -1,0 +1,38 @@
+/* src/components/SkeletonSection.css */
+.skeleton-wrapper {
+  padding: 2rem;
+}
+
+.skeleton-heading {
+  height: 24px;
+  width: 30%;
+  background: #e0e0e0;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-grid {
+  display: flex;
+  gap: 1rem;
+}
+
+.skeleton-box {
+  flex: 1;
+  height: 200px;
+  background: #e0e0e0;
+  border-radius: 8px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}

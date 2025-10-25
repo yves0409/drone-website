@@ -1,0 +1,94 @@
+/* ===== Hero Section ===== */
+.weddings-hero {
+  position: relative;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  height: 60vh; /* ← Add this line */
+}
+
+.weddings-hero img,
+.weddings-hero video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center; /* ← This keeps the drone visible */
+}
+
+.weddings-hero p {
+  color: white;
+  text-shadow: 0 2px 6px rgba(255, 192, 203, 0.9); /* soft pink tint */
+}
+
+.weddings-hero .container {
+  z-index: 2;
+  position: relative;
+}
+
+.textured-section {
+  background-image: url("../assets/asfalt-dark.png");
+  background-color: #f4efe7;
+  background-repeat: repeat;
+  background-size: contain;
+  padding: 4rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(1px);
+}
+
+/* ===== Content Section ===== */
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Intro and closing paragraph text */
+.section-intro,
+.section-outro {
+  font-size: 1.15rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.section-outro {
+  margin-top: 2rem;
+}
+
+.icon-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 2.5rem auto;
+  max-width: 500px;
+  text-align: left;
+}
+
+.icon-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 1.25rem;
+}
+
+/* Icon */
+.icon-list .icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 0.3rem;
+}
+
+/* ===== Divider Line ===== */
+.divider-line {
+  height: 1px;
+  background-color: #bbb;
+  margin: 2.5rem auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+.weddings-list-intro {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 1rem 0 1.5rem;
+  text-align: left;
+  color: #222;
+}

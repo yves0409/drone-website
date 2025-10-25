@@ -1,0 +1,57 @@
+.section.services {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+#services {
+  background-image: url("../assets/asfalt-dark.png");
+  background-repeat: repeat;
+  background-size: auto;
+}
+
+.service-grid {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.service-grid div {
+  padding: 1.5rem;
+  background-color: rgb(252, 249, 249);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 250px;
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+}
+
+.service-img {
+  height: 300px;
+  object-fit: cover;
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.section-divider {
+  display: block;
+  width: 100%;
+  height: 100px;
+  margin-top: -1px;
+  line-height: 0;
+}
+
+.section-divider {
+  display: block;
+  width: 100%;
+  height: 120px;
+  margin-bottom: -1px;
+  line-height: 0;
+}

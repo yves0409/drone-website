@@ -1,0 +1,175 @@
+#gallery {
+  background-image: url("../assets/asfalt-dark.png");
+  background-repeat: repeat;
+  background-size: auto;
+  min-height: 60vh;
+}
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Container for image + button */
+.modal-content {
+  position: relative;
+  display: inline-block;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+/* Modal backdrop */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+  transform: scale(0.8);
+  display: block;
+}
+
+.enlarged {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.6rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* Hover + blur effect on gallery images */
+.gallery-img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.blurred {
+  filter: blur(2px) brightness(0.7);
+}
+
+.gallery-img {
+  cursor: pointer;
+  transition: filter 0.3s ease;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.blurred {
+  filter: blur(2px);
+  opacity: 0.5;
+}
+
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 80vh;
+}
+
+.modal-video.enlarged {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.close-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 0 0.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 1;
+}

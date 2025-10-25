@@ -1,0 +1,162 @@
+.aerial-wrapper {
+  background-color: #f4efe7;
+  background-image: url("../assets/asfalt-dark.png");
+  background-repeat: repeat;
+  background-size: auto;
+  /* font-family: "Segoe UI", sans-serif; */
+  color: #1f1f1f;
+}
+
+/* 🎥 Video Banner */
+.video-banner {
+  position: relative;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.aerial-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom center;
+  z-index: 0;
+}
+
+.video-overlay {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  padding-top: 15vh;
+  background: rgba(0, 0, 0, 0.3);
+  height: 100%;
+}
+
+.video-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.video-overlay p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: beige;
+
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* .drone-con {
+  color: #f4efe7;
+} */
+
+/* 🧱 Grid Section */
+.aerial-grid {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.grid-title {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: #333;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row on desktop */
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* 1 per row on mobile */
+  }
+}
+
+/* end */
+
+.grid-container::-webkit-scrollbar {
+  display: none;
+}
+
+.grid-card {
+  background: #fffaf3;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(231, 12, 12, 0.1);
+  flex: 1 1 340px; /* allows it to shrink or grow */
+  max-width: 340px;
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.grid-icon {
+  font-size: 72px;
+  color: #c56c29;
+  margin-bottom: 1.5rem;
+}
+
+.animate-icon {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.grid-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  color: #1f1f1f;
+}
+
+.grid-card p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #333;
+  max-width: 340px;
+}
+
+@media (max-width: 768px) {
+  .video-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .video-overlay p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .grid-card {
+    padding: 2rem;
+  }
+
+  .grid-icon {
+    font-size: 60px;
+  }
+}

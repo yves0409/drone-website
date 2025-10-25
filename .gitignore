@@ -1,0 +1,11 @@
+# media: don't version full videos / HLS segments
+public/gallery/**/*.mp4
+public/gallery/**/*.mov
+public/gallery/**/*.ts
+public/videos/**/*.mp4
+public/videos/**/*.mov
+public/videos/**/*.ts
+
+# usual
+node_modules/
+build/
