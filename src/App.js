@@ -19,6 +19,7 @@ import WeddingsAndEventsPage from "./pages/WeddingsAndEventsPage";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import { TopicProvider } from "./context/TopicContext";
 import PrivacyPolicy from "./pages/PrivacyPolicyPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   const location = useLocation();
@@ -78,8 +79,8 @@ const App = () => {
           <Route path="services/events" element={<WeddingsAndEventsPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
-
         <ScrollToTopButton />
+        <ScrollToTop />
         <Footer />
       </TopicProvider>
     </>

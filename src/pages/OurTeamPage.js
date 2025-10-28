@@ -12,7 +12,7 @@ const OurTeamPage = () => {
 
         <div className="text-start mx-auto" style={{ maxWidth: "800px" }}>
           <p>
-            At SkyPix, we believe that great visuals begin with great people.
+            At AirGrid, we believe that great visuals begin with great people.
             Our team is made up of certified drone pilots, creative visual
             storytellers, and project managers who bring passion and precision
             to every flight.

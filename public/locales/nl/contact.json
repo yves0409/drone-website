@@ -1,11 +1,11 @@
 {
   "meta": {
-    "title": "Neem contact op met SkyPix",
-    "description": "Vragen of interesse in een drone-opname? Neem contact op met SkyPix per telefoon, e-mail of bezoek ons in België.",
-    "keywords": "SkyPix contact, drone reserveren, droneservice België",
-    "canonical": "https://www.skypix.be/nl/contact-details"
+    "title": "Neem contact op met AirGrid",
+    "description": "Vragen of interesse in een drone-opname? Neem contact op met AirGrid per telefoon, e-mail of bezoek ons in België.",
+    "keywords": "AirGrid contact, drone reserveren, droneservice België",
+    "canonical": "https://www.AirGrid.be/nl/contact-details"
   },
-  "contact_subtitle": "Contacteer SkyPix",
+  "contact_subtitle": "Contacteer AirGrid",
   "contact_heading": "Vertel ons over uw project, of laat ons meedenken over ideeën.",
   "contact_description": "Vul het formulier in en ontdek het volledige potentieel van uw visie.",
   "first_name": "Voornaam *",
@@ -25,7 +25,7 @@
   "topic_inspection": "Inspectie",
   "topic_events": "Evenementen",
   "topic_general": "Algemeen",
-  "contact_label": "Contacteer SkyPix",
+  "contact_label": "Contacteer AirGrid",
   "contact_subtext": "Vul het formulier in en ontdek het volledige potentieel van uw visuele project.",
   "placeholder_first_name": "",
   "placeholder_last_name": "",

@@ -15,13 +15,13 @@ const PrivacyPolicyPage = () => {
       <h1
         style={{ color: "#c56c29", fontSize: "2rem", marginBottom: "0.5rem" }}
       >
-        Privacy Policy – SkyPix
+        Privacy Policy – AirGrid
       </h1>
 
       <section id="en">
         <h2 style={{ color: "#ba4a1c", marginTop: "2rem" }}>English</h2>
         <p>
-          SkyPix is committed to protecting your privacy. This Privacy Policy
+          AirGrid is committed to protecting your privacy. This Privacy Policy
           explains how we collect, use, and store your data when you contact us
           or use our services.
         </p>
@@ -63,7 +63,7 @@ const PrivacyPolicyPage = () => {
           <strong>Contact:</strong>
           <br />
           For any privacy concerns, email us at:{" "}
-          <a href="mailto:hello@skypix.be">hello@skypix.be</a>
+          <a href="mailto:hello@AirGrid.be">hello@AirGrid.be</a>
         </p>
         <p>
           <em>This policy may be updated. Last revised: May 2025</em>
@@ -75,7 +75,7 @@ const PrivacyPolicyPage = () => {
       <section id="fr">
         <h2 style={{ color: "#ba4a1c" }}>Français</h2>
         <p>
-          SkyPix s'engage à protéger votre vie privée. Cette politique de
+          AirGrid s'engage à protéger votre vie privée. Cette politique de
           confidentialité explique comment nous collectons, utilisons et
           stockons vos données lorsque vous nous contactez ou utilisez nos
           services.
@@ -119,7 +119,7 @@ const PrivacyPolicyPage = () => {
           <strong>Contact :</strong>
           <br />
           Pour toute question relative à la confidentialité, contactez-nous à :{" "}
-          <a href="mailto:hello@skypix.be">hello@skypix.be</a>
+          <a href="mailto:hello@AirGrid.be">hello@AirGrid.be</a>
         </p>
         <p>
           <em>
@@ -133,7 +133,7 @@ const PrivacyPolicyPage = () => {
       <section id="nl">
         <h2 style={{ color: "#ba4a1c" }}>Nederlands</h2>
         <p>
-          SkyPix respecteert uw privacy. Dit privacybeleid legt uit hoe we uw
+          AirGrid respecteert uw privacy. Dit privacybeleid legt uit hoe we uw
           gegevens verzamelen, gebruiken en opslaan wanneer u contact met ons
           opneemt of gebruik maakt van onze diensten.
         </p>
@@ -175,7 +175,7 @@ const PrivacyPolicyPage = () => {
           <strong>Contact:</strong>
           <br />
           Voor privacyvragen kunt u ons bereiken via:{" "}
-          <a href="mailto:hello@skypix.be">hello@skypix.be</a>
+          <a href="mailto:hello@AirGrid.be">hello@AirGrid.be</a>
         </p>
         <p>
           <em>

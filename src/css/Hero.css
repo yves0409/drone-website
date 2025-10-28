@@ -1,4 +1,4 @@
-.landing-page {
+/* .landing-page {
   position: relative;
   height: 100vh;
   overflow: hidden;
@@ -87,11 +87,22 @@
 }
 
 .brand_name_hero {
-  color: #ba4a1c;
-  border: 0.5px solid #ba4a1c;
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.3);
   animation: fadeSlide 1s ease-out forwards;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+}
+
+
+.brand_name_hero .logo {
+  width: clamp(220px, 18vw, 380px); 
+  height: auto;
+  display: block;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 14px rgba(255, 204, 102, 0.25)); 
+  transition: transform 0.3s ease;
 }
 
 @keyframes fadeSlide {
@@ -109,7 +120,258 @@
   animation: fadeSlide 1s ease-out forwards;
 }
 
-/* ✅ Mobile responsiveness */
+
+@media (max-width: 768px) {
+  .content-overlay {
+    padding: 1rem;
+  }
+
+  .content-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .content-overlay h5 {
+    font-size: 1.1rem;
+  }
+
+  .brand_name_hero {
+    font-size: 1.6rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-overlay h1 {
+    font-size: 1.6rem;
+  }
+
+  .content-overlay h5 {
+    font-size: 1rem;
+  }
+
+  .brand_name_hero {
+    font-size: 1.3rem;
+    padding: 0.3rem 0.6rem;
+  }
+} */
+
+/* === LANDING PAGE CONTAINER === */
+.landing-page {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* === FADE TRANSITION (bottom fade into white) === */
+.fade-transition {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 260px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, #f9f9f9 90%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* === BACKGROUND VIDEO === */
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* === DARK OVERLAY (for text contrast) === */
+.video-overlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.65) 55%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  z-index: 1;
+}
+
+/* === MAIN CONTENT (centered overlay) === */
+.content-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  width: 100%;
+}
+
+/* === LOGO WRAPPER === */
+.brand_name_hero {
+  animation: fadeSlide 1s ease-out forwards;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+}
+
+/* 🪶 LOGO scaling + glow */
+.brand_name_hero .logo {
+  width: clamp(260px, 20vw, 460px);
+  height: auto;
+  display: block;
+  margin-bottom: 0.2rem;
+  filter: drop-shadow(0 0 14px rgba(255, 204, 102, 0.25));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  transform: translateY(6px); /* nudges SVG slightly downward */
+}
+
+.brand_name_hero .logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 20px rgba(255, 204, 102, 0.45));
+}
+
+/* 
+.content-overlay h1 {
+  font-family: "Orbitron", "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+
+  letter-spacing: 0.08em;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+
+.content-overlay h1 .gold {
+  background: linear-gradient(90deg, #ead38c, #b57335);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+.content-overlay h5 {
+  font-family: "Orbitron", "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 46rem;
+  margin: 0 auto 2rem;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+} */
+
+/* === FUTURISTIC APPLE-STYLE HERO TEXT === */
+.content-overlay h1 {
+  font-family: "Orbitron", "Poppins", "SF Pro Display", system-ui, -apple-system,
+    BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4vw, 2.8rem); /* balanced, cinematic scale */
+  letter-spacing: 0.04em; /* Orbitron needs a bit more space */
+  text-transform: uppercase;
+  line-height: 1.06;
+  margin-top: -0.4rem;
+  /* margin-bottom: 0.5rem; */
+  color: #fff;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease forwards 0.3s; /* smooth cinematic entrance */
+}
+
+/* Optional gradient highlight (for a single word) */
+.content-overlay h1 .gold {
+  background: linear-gradient(90deg, #ead38c, #b57335);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Subtext — understated and elegant */
+.content-overlay h5 {
+  font-family: "Poppins", "SF Pro Text", system-ui, -apple-system,
+    BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 42rem;
+  margin: 0.4rem auto 1.5rem;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeUp 1s ease forwards 0.6s; /* slightly delayed for cinematic stagger */
+}
+
+/* === ANIMATION === */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === BUTTONS (optional hero CTA area) === */
+.hero-buttons .btn {
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.hero-buttons .btn.primary {
+  background-color: #c56c29;
+}
+
+.hero-buttons .btn.secondary {
+  background-color: #444;
+}
+
+.hero-buttons .btn:hover {
+  opacity: 0.9;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-text {
+  animation: fadeSlide 1s ease-out forwards;
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
 @media (max-width: 768px) {
   .content-overlay {
     padding: 1rem;

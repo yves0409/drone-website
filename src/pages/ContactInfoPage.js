@@ -28,7 +28,7 @@ const ContactInfoPage = () => {
             <ul className="list-unstyled fs-5 contact-list">
               <li>
                 <span className="contact-icon">📍</span>{" "}
-                <strong>{t("contact_company")}:</strong> SkyPix
+                <strong>{t("contact_company")}:</strong> AirGrid
               </li>
 
               <li>
@@ -44,10 +44,10 @@ const ContactInfoPage = () => {
               <li>
                 <strong>📧 {t("contact_email")}:</strong>{" "}
                 <a
-                  href="mailto:hello@skypix.be"
+                  href="mailto:hello@AirGrid.be"
                   className="text-decoration-none text-dark"
                 >
-                  hello@skypix.be
+                  hello@AirGrid.be
                 </a>
               </li>
               <li>
@@ -91,7 +91,7 @@ const ContactInfoPage = () => {
                 </a>
 
                 <a
-                  href="https://wa.me/32478531692?text=Hello%20SkyPix%2C%20I'm%20interested%20in%20drone%20services
+                  href="https://wa.me/32478531692?text=Hello%20AirGrid%2C%20I'm%20interested%20in%20drone%20services
                   "
                   className="social-icon whatsapp"
                   target="_blank"
@@ -110,7 +110,7 @@ const ContactInfoPage = () => {
               style={{ height: "400px" }}
             >
               <iframe
-                title="SkyPix Location"
+                title="AirGrid Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2532.660926712495!2d2.909471476812598!3d51.23020727175132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47dc197b2c8e0a39%3A0xc9ffbf04cb688d2b!2sOstend%2C%20Belgium!5e0!3m2!1sen!2sbe!4v1715851760004!5m2!1sen!2sbe"
                 width="100%"
                 height="100%"

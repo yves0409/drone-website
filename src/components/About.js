@@ -25,7 +25,7 @@ const About = () => {
             <div className="col-md-6 text-md-start d-flex justify-content-md-start justify-content-center mb-4 mb-md-0">
               <img
                 src={profilePic}
-                alt="SkyPix Founder"
+                alt="AirGrid Founder"
                 className="about-img img-fluid rounded shadow"
               />
             </div>

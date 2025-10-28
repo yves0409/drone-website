@@ -1,12 +1,12 @@
 {
   "meta": {
-    "title": "Contact SkyPix – Get in Touch",
-    "description": "Have questions or want to book a drone shoot? Contact SkyPix via phone, email, or visit our location in Belgium.",
-    "keywords": "SkyPix contact, drone photography booking, Belgium drone services",
-    "canonical": "https://www.skypix.be/contact-details"
+    "title": "Contact AirGrid – Get in Touch",
+    "description": "Have questions or want to book a drone shoot? Contact AirGrid via phone, email, or visit our location in Belgium.",
+    "keywords": "AirGrid contact, drone photography booking, Belgium drone services",
+    "canonical": "https://www.AirGrid.be/contact-details"
   },
 
-  "contact_subtitle": "Contact SkyPix",
+  "contact_subtitle": "Contact AirGrid",
   "contact_heading": "Tell us about your project, or let us help brainstorm ideas.",
   "contact_description": "Fill out the form, and let’s unlock the full potential of your vision.",
   "first_name": "First name *",
@@ -27,7 +27,7 @@
   "topic_inspection": "Inspection",
   "topic_events": "Events",
   "topic_general": "General",
-  "contact_label": "Contact SkyPix",
+  "contact_label": "Contact AirGrid",
   "contact_subtext": "Fill out the form, and let’s unlock the full potential of your visuals.",
   "placeholder_first_name": "",
   "placeholder_last_name": "",

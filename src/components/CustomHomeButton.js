@@ -9,7 +9,7 @@ const CustomHomeButton = ({
 }) => {
   return (
     <Link
-      to="/"
+      to={{ pathname: "/", search: "", hash: "" }}
       className="HomeBtn"
       style={{
         color: color,

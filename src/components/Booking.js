@@ -110,7 +110,7 @@ const Booking = () => {
           {/* Left Column */}
           <div className="col-lg-6 text-start">
             <h2 className="section-heading-label">
-              {t("contact_label")} {/* example: "CONTACT SKYPIX" */}
+              {t("contact_label")} {/* example: "CONTACT AirGrid" */}
             </h2>
             <h1 className="display-5 fw-bold mb-4">{t("contact_heading")}</h1>
             <p className="lead">{t("contact_subtext")}</p>
@@ -146,7 +146,7 @@ const Booking = () => {
                 </a>
 
                 <a
-                  href="https://wa.me/32472123456?text=Hello%20SkyPix%2C%20I'm%20interested%20in%20drone%20services"
+                  href="https://wa.me/32472123456?text=Hello%20AirGrid%2C%20I'm%20interested%20in%20drone%20services"
                   className="floating-whatsapp"
                   target="_blank"
                   rel="noreferrer"

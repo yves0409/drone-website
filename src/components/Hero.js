@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/Hero.css";
 import { useTranslation } from "react-i18next";
+import { ReactComponent as AirgridLogo } from "../assets/airgrid-logo.svg";
 
 const Hero = () => {
   const { t } = useTranslation("common");
@@ -14,7 +15,10 @@ const Hero = () => {
 
       <div className="video-overlay" />
       <div className="content-overlay">
-        <h1 className="brand_name_hero">SkyPix</h1>
+        {/* <h1 className="brand_name_hero">AirGrid</h1> */}
+        <h1 className="brand_name_hero" aria-label="AirGrid Creative Solutions">
+          <AirgridLogo role="img" focusable="false" className="logo" />
+        </h1>
         <h1>{t("hero_title")}</h1>
         <h5>{t("hero")}</h5>
       </div>

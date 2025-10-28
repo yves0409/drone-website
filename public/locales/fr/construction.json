@@ -1,13 +1,13 @@
 {
   "meta": {
-    "title": "Inspection de chantiers par drone – SkyPix Belgique",
-    "description": "Suivez l’avancement de vos chantiers grâce aux inspections aériennes de haute précision de SkyPix.",
+    "title": "Inspection de chantiers par drone – AirGrid Belgique",
+    "description": "Suivez l’avancement de vos chantiers grâce aux inspections aériennes de haute précision de AirGrid.",
     "keywords": "drone chantier, inspection infrastructure, drone construction Belgique",
-    "canonical": "https://www.skypix.be/fr/services/construction"
+    "canonical": "https://www.AirGrid.be/fr/services/construction"
   },
   "construction_title": "Inspections de Chantier & d’Infrastructure",
   "construction_subtitle": "Des inspections plus sûres, plus rapides et plus précises — grâce aux drones.",
-  "construction_intro": "Chez SkyPix, nous proposons des services d'inspection aérienne adaptés aux secteurs de la construction et de l'infrastructure. Nos drones capturent des images haute résolution de zones difficiles d'accès — pour une meilleure prise de décision, une sécurité renforcée et une meilleure efficacité.",
+  "construction_intro": "Chez AirGrid, nous proposons des services d'inspection aérienne adaptés aux secteurs de la construction et de l'infrastructure. Nos drones capturent des images haute résolution de zones difficiles d'accès — pour une meilleure prise de décision, une sécurité renforcée et une meilleure efficacité.",
   "construction_list_intro": "Nous réalisons des inspections de :",
   "construction_point_1": "Toits et structures en hauteur",
   "construction_point_2": "Immeubles de grande hauteur et façades",

@@ -15,7 +15,7 @@
   "hero": "Visuels cinématographiques par drone, conçus pour les professionnels de l'immobilier.",
   "services": "Nos Services",
   "about_heading": "Une passion pour la perspective",
-  "about_text": "Chez SkyPix, nous sommes spécialisés dans la capture de l’extraordinaire vu du ciel. Forts d’une expérience de plus de dix ans dans la photographie par drone et d’un solide bagage dans l’immobilier, nous transformons les prises de vue aériennes en expériences immersives qui permettent de vendre les biens plus rapidement et de les mettre en valeur de manière optimale.",
+  "about_text": "Chez AirGrid, nous sommes spécialisés dans la capture de l’extraordinaire vu du ciel. Forts d’une expérience de plus de dix ans dans la photographie par drone et d’un solide bagage dans l’immobilier, nous transformons les prises de vue aériennes en expériences immersives qui permettent de vendre les biens plus rapidement et de les mettre en valeur de manière optimale.",
   "service_property": "Des prises de vue aériennes qui mettent en valeur les détails architecturaux, la disposition et le charme paysager.n",
   "service_aerial": "Vloeiende cinematische beelden van bovenaf, perfect om de indeling en schaal van een pand te tonen.",
   "service_edit": "Les drones offrent une inspection rapide, sécurisée et précise des zones difficiles d’accès pour une surveillance intelligente.",
@@ -50,7 +50,7 @@
   "form_success": "Envoyé avec succès ! Nous vous contacterons bientôt.",
 
   "mission_title": "Notre Mission",
-  "mission_text": "Chez SkyPix, nous croyons que chaque perspective raconte une histoire. Notre mission est de capturer le monde vu du ciel avec une précision cinématographique, en mettant en valeur l'immobilier, les événements et les projets commerciaux. Nous allions créativité et technologie de drone pour créer des images aériennes remarquables.",
+  "mission_text": "Chez AirGrid, nous croyons que chaque perspective raconte une histoire. Notre mission est de capturer le monde vu du ciel avec une précision cinématographique, en mettant en valeur l'immobilier, les événements et les projets commerciaux. Nous allions créativité et technologie de drone pour créer des images aériennes remarquables.",
 
   "mission_precision_title": "Précision & Détail",
   "mission_precision_text": "Nous volons avec précision pour capturer les meilleurs angles révélant structure, fluidité et harmonie du paysage.",
@@ -62,7 +62,7 @@
   "mission_delivery_text": "Des résultats haute résolution livrés à temps, prêts pour l'immobilier, le marketing et les médias — sans compromis.",
   "real_estate_title": "Services Aériens Immobiliers",
   "real_estate_subtitle": "Valorisez vos annonces avec des images aériennes spectaculaires.",
-  "real_estate_intro": "Dans le marché immobilier d’aujourd’hui, la première impression se fait en ligne. Chez SkyPix, nous aidons les agents et promoteurs à séduire les acheteurs grâce à des vues aériennes qui mettent en valeur l’agencement, le quartier et le style de vie.",
+  "real_estate_intro": "Dans le marché immobilier d’aujourd’hui, la première impression se fait en ligne. Chez AirGrid, nous aidons les agents et promoteurs à séduire les acheteurs grâce à des vues aériennes qui mettent en valeur l’agencement, le quartier et le style de vie.",
   "real_estate_includes_title": "Chaque pack inclut :",
   "real_estate_feature_1": "Photos aériennes haute résolution et vidéo 4K cinématique",
   "real_estate_feature_2": "Flyovers fluides et vues de quartier pour le contexte",
@@ -73,7 +73,7 @@
   "real_estate_cta": "Demander une captation immobilière",
   "construction_title": "Inspections de Chantier & d’Infrastructure",
   "construction_subtitle": "Des inspections plus sûres, plus rapides et plus précises — grâce aux drones.",
-  "construction_intro": "Chez SkyPix, nous proposons des services d'inspection aérienne adaptés aux secteurs de la construction et de l'infrastructure. Nos drones capturent des images haute résolution de zones difficiles d'accès — pour une meilleure prise de décision, une sécurité renforcée et une meilleure efficacité.",
+  "construction_intro": "Chez AirGrid, nous proposons des services d'inspection aérienne adaptés aux secteurs de la construction et de l'infrastructure. Nos drones capturent des images haute résolution de zones difficiles d'accès — pour une meilleure prise de décision, une sécurité renforcée et une meilleure efficacité.",
   "construction_list_intro": "Nous réalisons des inspections de :",
   "construction_point_1": "Toits et structures en hauteur",
   "construction_point_2": "Immeubles de grande hauteur et façades",
@@ -81,7 +81,7 @@
   "construction_point_4": "Ponts, tours et sites industriels",
   "construction_closing": "Grâce à la surveillance en direct, aux caméras à zoom et à l’imagerie thermique (sur demande), nous fournissons des données fiables sans exposer les travailleurs à des risques ni retarder les délais.",
   "back_home": "Retour à l'accueil",
-  "contact_subtitle": "Contactez SkyPix",
+  "contact_subtitle": "Contactez AirGrid",
   "contact_heading": "Parlez-nous de votre projet ou laissez-nous vous aider à innover.",
   "contact_description": "Remplissez le formulaire pour débloquer le plein potentiel de votre vision.",
   "first_name": "Prénom *",
@@ -101,7 +101,7 @@
   "topic_inspection": "Inspection",
   "topic_events": "Events",
   "topic_general": "General",
-  "contact_label": "Contactez SkyPix",
+  "contact_label": "Contactez AirGrid",
   "contact_subtext": "Remplissez le formulaire pour libérer tout le potentiel de vos visuels.",
   "placeholder_first_name": "Jean",
   "placeholder_last_name": "Dupont",
@@ -151,9 +151,9 @@
   "sunset_shots": "Plans au coucher du soleil",
   "sunset_desc": "Lumière dorée et mouvements fluides — idéal pour l’émotion et l’ambiance visuelle.",
   "meta": {
-    "title": "À propos de SkyPix – Experts en drones en Belgique",
-    "description": "Découvrez la mission et l’équipe de SkyPix en photographie aérienne.",
-    "keywords": "SkyPix, drone, photographie, Belgique, à propos, services aériens",
-    "canonical": "https://www.skypix.be/fr/about"
+    "title": "À propos de AirGrid – Experts en drones en Belgique",
+    "description": "Découvrez la mission et l’équipe de AirGrid en photographie aérienne.",
+    "keywords": "AirGrid, drone, photographie, Belgique, à propos, services aériens",
+    "canonical": "https://www.AirGrid.be/fr/about"
   }
 }

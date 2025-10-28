@@ -18,7 +18,7 @@
 
 .scroll-to-top:hover {
   transform: scale(1.1);
-  background-color: #ba4a1c;
+  background-color: #f5f3df;
 }
 
 .scroll-to-top.show {

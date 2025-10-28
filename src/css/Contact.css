@@ -54,12 +54,12 @@
 
 .contact-section .form-control:focus,
 .contact-section .form-select:focus {
-  border-color: #ba4a1c;
+  border-color: #f5f3df
   box-shadow: 0 0 0 0.15rem rgba(186, 74, 28, 0.25);
 }
 
 .contact-section .btn-primary {
-  background-color: #ba4a1c;
+  background-color: #f5f3df
   border: none;
   padding: 10px 24px;
   font-weight: bold;

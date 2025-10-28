@@ -3,6 +3,7 @@
 .navbar {
   background-color: transparent !important;
   backdrop-filter: none !important;
+  --bs-navbar-padding-y: 1.6rem; /* default is .5rem */
 }
 
 .navbar .nav-link {
@@ -33,7 +34,7 @@
   text-transform: uppercase;
 }
 
-.transparent-navbar .btn-outline-primary {
+/* .transparent-navbar .btn-outline-primary {
   border-color: #ba4a1c;
   color: #ba4a1c;
 }
@@ -41,15 +42,39 @@
 .transparent-navbar .btn-outline-primary:hover {
   background-color: #ba4a1c;
   color: white;
-}
+} */
 
-.brand-text {
+/* .brand-text {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 1.4rem;
   letter-spacing: 1px;
   color: rgb(240, 228, 228);
   text-transform: uppercase;
+} */
+
+/* wrapper sets the target height; svg fills it */
+.brand-logo-wrap {
+  height: 38px;
+  line-height: 0;
+}
+.brand-logo {
+  height: 160%;
+  width: auto;
+  display: block;
+}
+
+/* larger on desktop */
+@media (min-width: 992px) {
+  .brand-logo-wrap {
+    height: 56px;
+  }
+}
+
+/* in case Bootstrap sets a conflicting rule */
+.navbar-brand img,
+.navbar-brand svg {
+  max-height: none !important;
 }
 
 .dropdown-menu {
@@ -68,12 +93,14 @@
 }
 
 /* Book now button */
-.btn-slide-icon {
-  background-color: #c56c29;
-  color: white;
+.btn-slide-icon-2 {
+  /* background-color: #c56c29; */
+  background-color: transparent;
+  border: 1px solid black;
+  color: rgb(3, 0, 0);
   padding: 0.75rem 1.8rem;
   font-size: 1rem;
-  border: none;
+  /* border: none; */
   border-radius: 8px;
   font-weight: 600;
   text-transform: uppercase;
@@ -83,16 +110,23 @@
   transition: background 0.3s ease;
 }
 
-.btn-slide-icon .icon {
+.btn-slide-icon-2 .icon {
   transition: transform 0.3s ease;
 }
 
-.btn-slide-icon:hover .icon {
+.btn-slide-icon-2:hover .icon {
   transform: translateX(6px);
 }
 
-.btn-slide-icon:hover {
-  background-color: #a75413;
+.btn-slide-icon-2:hover {
+  /* background-color: #a75413; */
+  background-color: #121111;
+  color: rgb(253, 251, 251);
+}
+
+.btn-slide-icon {
+  width: 100%;
+  justify-content: center;
 }
 
 /* Responsive Enhancements */
@@ -100,12 +134,19 @@
   .navbar-collapse {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 1rem;
+    margin-top: 2.5rem;
+
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
   }
 
-  .navbar-brand img {
+  /* .navbar-brand img {
     width: 120px;
     height: auto;
-  }
+  } */
 
   .navbar-nav {
     flex-direction: column !important;
@@ -115,11 +156,6 @@
   .navbar-nav .nav-item {
     width: 100%;
     margin-bottom: 1rem;
-  }
-
-  .btn-slide-icon {
-    width: 100%;
-    justify-content: center;
   }
 
   .language-switcher {
@@ -145,6 +181,11 @@
   justify-content: center;
   width: 100%;
 }
+
+/* Prevent sticky nav from covering the target when scrolled into view */
+#booking {
+  scroll-margin-top: 80px;
+} /* adjust to your navbar height */
 
 @media (min-width: 992px) {
   .nav-actions-container {
