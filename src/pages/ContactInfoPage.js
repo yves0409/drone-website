@@ -34,25 +34,25 @@ const ContactInfoPage = () => {
               <li>
                 <strong>📞 {t("contact_phone")}:</strong>{" "}
                 <a
-                  href="tel:+32472123456"
+                  href="tel:+32 478/531692"
                   className="text-decoration-none text-dark"
                 >
-                  +32 472 123 456
+                  +32 478 531 692
                 </a>
               </li>
 
               <li>
                 <strong>📧 {t("contact_email")}:</strong>{" "}
                 <a
-                  href="mailto:hello@AirGrid.be"
+                  href="mailto:info@airgrid.be"
                   className="text-decoration-none text-dark"
                 >
-                  hello@AirGrid.be
+                  info@airgrid.be
                 </a>
               </li>
               <li>
                 <span className="contact-icon">🆔</span>{" "}
-                <strong>{t("contact_registration")}:</strong> BE 0746.123.456
+                <strong>{t("contact_registration")}:</strong> BE Coming soon
               </li>
             </ul>
 

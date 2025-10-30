@@ -416,3 +416,48 @@
     font-size: 1rem !important;
   }
 }
+
+/* === DESKTOP: full-width, centered dropdown with frosted background (no animations) === */
+@media (min-width: 1200px) {
+  /* allow the menu to span the viewport (don’t clip inside the LI) */
+  .navbar .nav-item.dropdown {
+    position: static !important;
+  }
+
+  /* span and center on the viewport; keep Bootstrap's show/hide intact */
+  .navbar .nav-item.dropdown > .dropdown-menu {
+    position: absolute !important;
+    top: 100%;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100dvw !important; /* use 100vw if dvw unsupported */
+    max-width: 100dvw !important;
+    margin: 0 !important;
+    padding: 1rem 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    text-align: center;
+    z-index: 1100;
+
+    /* frosted background to match navbar */
+    background-color: rgba(103, 99, 99, 0.58);
+    backdrop-filter: blur(10px) saturate(130%);
+    -webkit-backdrop-filter: blur(10px) saturate(130%);
+  }
+
+  /* keep items readable & inline */
+  .navbar .dropdown-menu .dropdown-item {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #0a0a0a;
+    background: transparent;
+  }
+  .navbar .dropdown-menu .dropdown-item:hover {
+    text-decoration: underline;
+    text-decoration-color: #c56c29;
+    text-decoration-thickness: 3px;
+  }
+}
