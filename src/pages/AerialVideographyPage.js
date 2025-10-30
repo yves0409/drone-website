@@ -43,7 +43,7 @@ const AerialVideographyPage = () => {
     <div className="aerial-wrapper">
       <div className="video-banner">
         <video autoPlay muted loop playsInline className="aerial-video">
-          <source src="/videos/areal-banner.mp4" type="video/mp4" />
+          <source src="/videos/areal_1080_web.mp4" type="video/mp4" />
         </video>
 
         <CustomHomeButton />

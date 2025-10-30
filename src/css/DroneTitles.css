@@ -17,23 +17,24 @@
 /* === Title Styling === */
 .drone-title span {
   margin-top: 0.5rem;
-  font-size: 2.5rem;
-  font-weight: normal;
-  text-transform: none;
+  font-size: 2rem;
+  /* font: "Montserrat", system-ui, -apple-system, sans-serif; */
+
+  text-transform: uppercase;
   color: #070707;
   position: relative;
 }
 
-.drone-title::before {
+/* .drone-title::before {
   content: "🪢";
   display: block;
   height: 40px;
   width: 4px;
   background-color: currentColor !important;
-  /* position: static; */
+  
   position: relative;
   left: 135px;
-}
+} */
 
 /* === Optional Floating Drone Animation === */
 @keyframes float {
@@ -49,4 +50,5 @@
 .title-text {
   position: relative;
   color: #070605; /* or any color you want the rope to follow */
+  font-size: 80px;
 }

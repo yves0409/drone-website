@@ -1,198 +1,57 @@
-/* .landing-page {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.fade-transition {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 260px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, #f9f9f9 90%);
-  z-index: 3;
-  pointer-events: none;
-}
-
-.background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-
-.video-overlay {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0),
-    rgba(7, 7, 7, 0.6)
-  );
-  z-index: 1;
-}
-
-.content-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  color: white;
-  text-align: center;
-  padding: 2rem;
-}
-
-.content-overlay h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.content-overlay h5 {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.hero-buttons .btn {
-  padding: 0.75rem 1.5rem;
-  margin: 0 0.5rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  text-decoration: none;
-  color: white;
-  transition: background 0.3s ease;
-}
-
-.hero-buttons .btn.primary {
-  background-color: #c56c29;
-}
-
-.hero-buttons .btn.secondary {
-  background-color: #444;
-}
-
-.hero-buttons .btn:hover {
-  opacity: 0.9;
-}
-
-.brand_name_hero {
-  animation: fadeSlide 1s ease-out forwards;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 0;
-}
-
-
-.brand_name_hero .logo {
-  width: clamp(220px, 18vw, 380px); 
-  height: auto;
-  display: block;
-  margin-bottom: 1.5rem;
-  filter: drop-shadow(0 0 14px rgba(255, 204, 102, 0.25)); 
-  transition: transform 0.3s ease;
-}
-
-@keyframes fadeSlide {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animated-text {
-  animation: fadeSlide 1s ease-out forwards;
-}
-
-
-@media (max-width: 768px) {
-  .content-overlay {
-    padding: 1rem;
-  }
-
-  .content-overlay h1 {
-    font-size: 2rem;
-  }
-
-  .content-overlay h5 {
-    font-size: 1.1rem;
-  }
-
-  .brand_name_hero {
-    font-size: 1.6rem;
-    padding: 0.4rem 0.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .content-overlay h1 {
-    font-size: 1.6rem;
-  }
-
-  .content-overlay h5 {
-    font-size: 1rem;
-  }
-
-  .brand_name_hero {
-    font-size: 1.3rem;
-    padding: 0.3rem 0.6rem;
-  }
-} */
-
 /* === LANDING PAGE CONTAINER === */
+/* CHANGED: width:100%, 100svh, overflow:clip, isolation */
+
 .landing-page {
   position: relative;
-  height: 100vh;
-  overflow: hidden;
+  width: 100%;
+  height: min(100svh, 1200px); /* old rule: capped height */
+  overflow: clip;
+  isolation: isolate;
 }
 
 /* === FADE TRANSITION (bottom fade into white) === */
+/* CHANGED: use left/right + slight -1px to avoid seam; fixed height to be responsive */
+/* .fade-transition {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: clamp(48px, 10vh, 160px);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, #f9f9f9 90%);
+  z-index: 3;
+  pointer-events: none;
+} */
+
 .fade-transition {
   position: absolute;
-  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 260px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, #f9f9f9 90%);
+  right: 0;
+  bottom: -1px;
+  height: clamp(96px, 12vh, 220px);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #f9f9f9 100%);
   z-index: 3;
   pointer-events: none;
 }
 
 /* === BACKGROUND VIDEO === */
+/* CHANGED: use absolute + inset + width/height 100% and z-index:0; removed min-* and negative z-index */
 .background-video {
   position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
+  inset: 0; /* top/right/bottom/left: 0 */
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  z-index: -1;
+  object-position: center;
+  display: block;
+  max-width: none; /* prevent intrinsic width from forcing overflow */
+  z-index: 0; /* don't go negative */
+  pointer-events: none;
 }
 
 /* === DARK OVERLAY (for text contrast) === */
 .video-overlay {
-  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.15) 0%,
@@ -203,16 +62,18 @@
 }
 
 /* === MAIN CONTENT (centered overlay) === */
+/* CHANGED: fill container via inset:0 + flex; removed 50% translate centering */
 .content-overlay {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
   z-index: 2;
   color: white;
   text-align: center;
-  padding: 2rem;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-inline: clamp(16px, 4vw, 48px);
 }
 
 /* === LOGO WRAPPER === */
@@ -233,7 +94,7 @@
   margin-bottom: 0.2rem;
   filter: drop-shadow(0 0 14px rgba(255, 204, 102, 0.25));
   transition: transform 0.3s ease, filter 0.3s ease;
-  transform: translateY(6px); /* nudges SVG slightly downward */
+  transform: translateY(6px);
 }
 
 .brand_name_hero .logo:hover {
@@ -241,56 +102,21 @@
   filter: drop-shadow(0 0 20px rgba(255, 204, 102, 0.45));
 }
 
-/* 
-.content-overlay h1 {
-  font-family: "Orbitron", "Poppins", sans-serif;
-  font-weight: 500;
-  font-size: clamp(1.6rem, 4vw, 2.8rem);
-
-  letter-spacing: 0.08em;
-  line-height: 1.05;
-  text-transform: uppercase;
-  color: #fff;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
-}
-
-
-.content-overlay h1 .gold {
-  background: linear-gradient(90deg, #ead38c, #b57335);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-
-.content-overlay h5 {
-  font-family: "Orbitron", "Poppins", sans-serif;
-  font-weight: 500;
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  line-height: 1.55;
-  letter-spacing: 0.01em;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 46rem;
-  margin: 0 auto 2rem;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
-} */
-
 /* === FUTURISTIC APPLE-STYLE HERO TEXT === */
 .content-overlay h1 {
   font-family: "Orbitron", "Poppins", "SF Pro Display", system-ui, -apple-system,
     BlinkMacSystemFont, sans-serif;
   font-weight: 700;
-  font-size: clamp(1.6rem, 4vw, 2.8rem); /* balanced, cinematic scale */
-  letter-spacing: 0.04em; /* Orbitron needs a bit more space */
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   line-height: 1.06;
   margin-top: -0.4rem;
-  /* margin-bottom: 0.5rem; */
   color: #fff;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.4);
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeUp 1s ease forwards 0.3s; /* smooth cinematic entrance */
+  animation: fadeUp 1s ease forwards 0.3s;
 }
 
 /* Optional gradient highlight (for a single word) */
@@ -315,7 +141,7 @@
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
   opacity: 0;
   transform: translateY(15px);
-  animation: fadeUp 1s ease forwards 0.6s; /* slightly delayed for cinematic stagger */
+  animation: fadeUp 1s ease forwards 0.6s;
 }
 
 /* === ANIMATION === */
@@ -346,11 +172,9 @@
 .hero-buttons .btn.primary {
   background-color: #c56c29;
 }
-
 .hero-buttons .btn.secondary {
   background-color: #444;
 }
-
 .hero-buttons .btn:hover {
   opacity: 0.9;
 }
@@ -366,7 +190,6 @@
     transform: translateY(0);
   }
 }
-
 .animated-text {
   animation: fadeSlide 1s ease-out forwards;
 }
@@ -376,15 +199,12 @@
   .content-overlay {
     padding: 1rem;
   }
-
   .content-overlay h1 {
     font-size: 2rem;
   }
-
   .content-overlay h5 {
     font-size: 1.1rem;
   }
-
   .brand_name_hero {
     font-size: 1.6rem;
     padding: 0.4rem 0.8rem;
@@ -395,13 +215,17 @@
   .content-overlay h1 {
     font-size: 1.6rem;
   }
-
   .content-overlay h5 {
     font-size: 1rem;
   }
-
   .brand_name_hero {
     font-size: 1.3rem;
     padding: 0.3rem 0.6rem;
   }
+}
+
+/* Optional safety net while debugging other pages */
+html,
+body {
+  overflow-x: hidden;
 }

@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 
 .navbar {
-  background-color: transparent !important;
-  backdrop-filter: none !important;
+  /* background-color: transparent !important;
+  backdrop-filter: none !important; */
   --bs-navbar-padding-y: 1.6rem; /* default is .5rem */
 }
 
@@ -19,7 +19,14 @@
 }
 
 .transparent-navbar {
-  background: transparent;
+  /* background: #676363;
+  opacity: 0.7; */
+  /* pick your tint; text stays crisp */
+  /* background-color: rgba(255, 255, 255, 0.78); */
+  background-color: rgba(103, 99, 99, 0.58);
+  backdrop-filter: blur(10px) saturate(130%); /* frosted glass */
+  -webkit-backdrop-filter: blur(10px) saturate(130%);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
   border: none;
   z-index: 1000;
 }
@@ -34,32 +41,13 @@
   text-transform: uppercase;
 }
 
-/* .transparent-navbar .btn-outline-primary {
-  border-color: #ba4a1c;
-  color: #ba4a1c;
-}
-
-.transparent-navbar .btn-outline-primary:hover {
-  background-color: #ba4a1c;
-  color: white;
-} */
-
-/* .brand-text {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  font-size: 1.4rem;
-  letter-spacing: 1px;
-  color: rgb(240, 228, 228);
-  text-transform: uppercase;
-} */
-
 /* wrapper sets the target height; svg fills it */
 .brand-logo-wrap {
   height: 38px;
   line-height: 0;
 }
 .brand-logo {
-  height: 160%;
+  height: 120%;
   width: auto;
   display: block;
 }
@@ -94,13 +82,11 @@
 
 /* Book now button */
 .btn-slide-icon-2 {
-  /* background-color: #c56c29; */
   background-color: transparent;
   border: 1px solid black;
   color: rgb(3, 0, 0);
   padding: 0.75rem 1.8rem;
   font-size: 1rem;
-  /* border: none; */
   border-radius: 8px;
   font-weight: 600;
   text-transform: uppercase;
@@ -130,7 +116,7 @@
 }
 
 /* Responsive Enhancements */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .navbar-collapse {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 1rem;
@@ -142,11 +128,6 @@
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
   }
-
-  /* .navbar-brand img {
-    width: 120px;
-    height: auto;
-  } */
 
   .navbar-nav {
     flex-direction: column !important;
@@ -197,5 +178,241 @@
 
   .nav-button-wrapper {
     width: auto;
+  }
+}
+
+/* Default hamburger (you can keep Bootstrap's or override) */
+.navbar .navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0,0,0,.85)' stroke-width='1.5' stroke-linecap='round' d='M2 4.5h12M2 8h12M2 11.5h12'/%3e%3c/svg%3e");
+}
+
+/* When expanded, show an X icon */
+.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0,0,0,.85)' stroke-width='1.8' stroke-linecap='round' d='M3 3l10 10M13 3L3 13'/%3e%3c/svg%3e");
+}
+
+/* If your navbar is dark, use white strokes instead: replace .85 with 1 and 255,255,255 */
+
+.navbar .navbar-toggler {
+  width: 42px;
+  height: 34px;
+} /* stable box */
+
+@media (max-width: 480px) {
+  .navbar .navbar-toggler {
+    padding: 0.6rem;
+  }
+}
+
+/* Let navbar contents actually shrink/wrap (no duplicates in your file) */
+.navbar,
+.navbar * {
+  min-width: 0;
+}
+.navbar .navbar-collapse {
+  flex: 1 1 auto;
+}
+.navbar .navbar-nav {
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+}
+.navbar .nav-link,
+.navbar .dropdown-toggle {
+  white-space: nowrap;
+}
+
+/* Hide brand when the mobile menu is open (CSS-only; modern browsers) */
+@media (max-width: 1199.98px) {
+  .navbar:has(.navbar-collapse.show) .navbar-brand,
+  .navbar:has(.navbar-toggler[aria-expanded="true"]) .navbar-brand {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+  }
+}
+
+/* "Close" button inside collapsed menu (only matters if you add the HTML) */
+.navbar-close {
+  margin-top: 0.5rem;
+}
+.navbar-close .btn {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
+
+/* Center the dropdown panel beneath its trigger on desktop */
+@media (min-width: 1200px) {
+  /* match navbar-expand-xl */
+  .navbar .nav-item.dropdown {
+    position: relative; /* anchor */
+  }
+  .navbar .nav-item .dropdown-menu {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    right: auto !important;
+    margin-top: 0.75rem;
+    text-align: center; /* center items’ text */
+    --bs-dropdown-min-width: 12rem; /* optional: tidy width */
+  }
+  /* Optional: keep items nice and compact */
+  .navbar .dropdown-menu .dropdown-item {
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+  }
+}
+
+/* You already made dropdowns static on mobile; keep that */
+@media (max-width: 1199.98px) {
+  .navbar .dropdown-menu {
+    position: static;
+    transform: none !important;
+    left: auto;
+    right: auto;
+    width: 100%; /* optional: full width in the column */
+    text-align: left; /* or center if you prefer */
+  }
+}
+
+/* Slightly tighten nav spacing so the whole group stays visually centered */
+.navbar .navbar-nav {
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+/* ===== Mobile & tablet (≤1200px): center labels and menus ===== */
+@media (max-width: 1199.98px) {
+  /* Collapse panel styling stays the same, just centered */
+  .navbar-collapse {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 1rem;
+    margin-top: 2.5rem;
+    border-radius: 10px;
+    text-align: center; /* base centering */
+  }
+
+  /* Stack vertically, but center the items */
+  .navbar-nav {
+    flex-direction: column !important;
+    align-items: center; /* was flex-start */
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  /* Nav items don’t need full width if you want true centering */
+  .navbar-nav .nav-item {
+    width: auto; /* was 100% */
+  }
+
+  /* Center the toggles (the labels) */
+  .navbar .nav-link,
+  .navbar .dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto; /* prevent stretching left/right */
+    margin: 0 auto; /* keep centered in the column */
+  }
+
+  /* Make dropdown menus centered under their toggles in the collapsed column */
+  .navbar .dropdown-menu {
+    position: static; /* no Popper positioning */
+    transform: none !important;
+    left: auto;
+    right: auto;
+    width: auto; /* shrink to content */
+    margin: 0.25rem 0 0 0;
+    text-align: center; /* center the items’ text */
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .navbar .dropdown-menu .dropdown-item {
+    display: inline-block; /* shrink to text and center */
+    padding: 0.4rem 0.75rem;
+    white-space: nowrap;
+  }
+
+  /* Language flags + CTA already centered; keep spacing tidy */
+  .language-switcher {
+    margin: 0.5rem 0 1rem;
+  }
+  .nav-actions-container {
+    align-items: center;
+  }
+  .nav-button-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* NUCLEAR: shrink ALL text inside the dropdown on mobile */
+@media (max-width: 1199.98px) {
+  /* catch both normal and transparent navbars */
+  .navbar .dropdown-menu,
+  .transparent-navbar .dropdown-menu {
+    --bs-dropdown-font-size: 0.9rem !important; /* for BS5 items that use the var */
+  }
+
+  /* override any large nav-link / dropdown-item font-sizes */
+  .navbar .dropdown-menu *:where(a, .dropdown-item, .nav-link, span, li),
+  .transparent-navbar
+    .dropdown-menu
+    *:where(a, .dropdown-item, .nav-link, span, li) {
+    font-size: 0.9rem !important;
+    line-height: 1.35 !important;
+  }
+
+  /* keep tap targets comfortable even with smaller text */
+  .navbar .dropdown-menu .dropdown-item,
+  .transparent-navbar .dropdown-menu .dropdown-item,
+  .navbar .dropdown-menu a,
+  .transparent-navbar .dropdown-menu a {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+}
+
+/* tiny phones */
+@media (max-width: 480px) {
+  .navbar .dropdown-menu,
+  .transparent-navbar .dropdown-menu {
+    --bs-dropdown-font-size: 0.875rem !important;
+  }
+  .navbar .dropdown-menu *:where(a, .dropdown-item, .nav-link, span, li),
+  .transparent-navbar
+    .dropdown-menu
+    *:where(a, .dropdown-item, .nav-link, span, li) {
+    font-size: 0.875rem !important;
+  }
+}
+
+/* Mobile: shrink the DROPDOWN TITLES inside the collapsed menu */
+@media (max-width: 1199.98px) {
+  /* covers both normal and transparent navbars */
+  .navbar .navbar-collapse.show .nav-link,
+  .navbar .navbar-collapse.show .dropdown-toggle,
+  .transparent-navbar .navbar-collapse.show .nav-link,
+  .transparent-navbar .navbar-collapse.show .dropdown-toggle {
+    font-size: 1.1rem !important; /* tweak: 1.0–1.2rem as you like */
+    line-height: 1.25;
+    letter-spacing: 0.3px;
+  }
+
+  /* optional: tighten spacing between sections in the open menu */
+  .navbar .navbar-collapse.show .nav-item {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* tiny phones (optional) */
+@media (max-width: 480px) {
+  .navbar .navbar-collapse.show .nav-link,
+  .navbar .navbar-collapse.show .dropdown-toggle,
+  .transparent-navbar .navbar-collapse.show .nav-link,
+  .transparent-navbar .navbar-collapse.show .dropdown-toggle {
+    font-size: 1rem !important;
   }
 }

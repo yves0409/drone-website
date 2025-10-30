@@ -1,3 +1,49 @@
 body {
   font-family: "Playfair Display", serif !important;
 }
+
+/* --- Global reset (put in index.css / globals.css) --- */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0; /* removes the default 8px body margin (white border) */
+  padding: 0;
+  height: 100%;
+}
+
+/* If your top wrapper adds padding, clear it */
+#root,
+.app,
+.site-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+/* Make navbar span edge-to-edge */
+.navbar {
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.header .container {
+  padding-left: 0;
+  padding-right: 0;
+} /* optional */
+
+/* Put this in your global CSS (e.g., index.css) */
+
+/* Match the same breakpoint as your expand class */
+@media (max-width: 1199.98px) {
+  /* When the collapse is open, or the toggler is expanded, hide the brand */
+  .navbar:has(.navbar-collapse.show) .navbar-brand,
+  .navbar:has(.navbar-toggler[aria-expanded="true"]) .navbar-brand {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden; /* ensures it doesn't catch clicks */
+    transition: opacity 0.15s ease;
+  }
+}

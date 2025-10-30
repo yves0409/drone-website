@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <div className="landing-page">
       <video autoPlay loop muted playsInline className="background-video">
-        <source src="/videos/hero.mp4" type="video/mp4" />
+        <source src="/videos/hero_1080p_web.mp4" type="video/mp4" />
         compressed-hero Your browser does not support the video tag.
       </video>
 

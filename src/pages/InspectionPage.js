@@ -50,7 +50,7 @@ const InspectionPage = () => {
           playsInline
           preload="auto" /* or try "metadata" or "none" depending on your needs */
         >
-          <source src="/videos/inspection-banner.mp4" type="video/mp4" />
+          <source src="/videos/inspection_1080p_web.mp4" type="video/mp4" />
         </video>
 
         <CustomHomeButton />
