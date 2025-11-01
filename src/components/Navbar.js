@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../css/Navbar.css";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -25,24 +26,112 @@ const Navbar = () => {
     };
   }, [location.pathname]);
 
+  useEffect(() => {
+    const closeAll = () => {
+      // 1) Close ANY open dropdowns (desktop/mobile)
+      // Remove 'show' on menu + parent and reset aria
+      document.querySelectorAll(".dropdown-menu.show").forEach((menu) => {
+        menu.classList.remove("show");
+        const parent = menu.closest(".dropdown");
+        if (parent) parent.classList.remove("show");
+        const toggle = parent?.querySelector(
+          '.dropdown-toggle[aria-expanded="true"]'
+        );
+        if (toggle) toggle.setAttribute("aria-expanded", "false");
+      });
+
+      // 2) Close the mobile navbar collapse if open
+      const openCollapse = document.querySelector(".navbar-collapse.show");
+      const openToggler = document.querySelector(
+        '.navbar-toggler[aria-expanded="true"]'
+      );
+      if (openCollapse && openToggler) {
+        openCollapse.classList.remove("show");
+        openToggler.setAttribute("aria-expanded", "false");
+        // also remove the 'collapsing' inline style if any
+        openCollapse.style.height = "";
+      }
+    };
+
+    const onScrollish = () => closeAll();
+
+    // Attach to MANY possible scrollers (scroll doesn't bubble)
+    const targets = [
+      window,
+      document,
+      document.scrollingElement,
+      document.documentElement,
+      document.body,
+      document.querySelector("#root"),
+      document.querySelector("main"),
+      document.querySelector(".landing-page"),
+      document.querySelector(".page-wrapper"),
+      document.querySelector(".container-fluid"),
+    ].filter(Boolean);
+
+    const opts = { passive: true };
+    targets.forEach((t) => t.addEventListener("scroll", onScrollish, opts));
+    // also react to wheel/touch (some setups don't fire scroll immediately)
+    window.addEventListener("wheel", onScrollish, opts);
+    window.addEventListener("touchmove", onScrollish, opts);
+    // keyboard scrolling
+    const onKey = (e) => {
+      if (
+        [
+          "PageDown",
+          "PageUp",
+          "End",
+          "Home",
+          "ArrowDown",
+          "ArrowUp",
+          " ",
+        ].includes(e.key)
+      )
+        closeAll();
+    };
+    window.addEventListener("keydown", onKey);
+
+    return () => {
+      targets.forEach((t) => t.removeEventListener("scroll", onScrollish));
+      window.removeEventListener("wheel", onScrollish);
+      window.removeEventListener("touchmove", onScrollish);
+      window.removeEventListener("keydown", onKey);
+    };
+  }, []);
+
+  // const handleScrollToBooking = () => {
+  //   setSelectedTopic("general");
+
+  //   // If not already on Home, navigate with hash and let ScrollToTop handle it.
+  //   if (location.pathname !== "/") {
+  //     navigate("/#booking");
+  //     return;
+  //   }
+
+  //   // Already on Home: scroll immediately (no long delay).
+  //   if (scrollTimer.current) clearTimeout(scrollTimer.current);
+  //   scrollTimer.current = setTimeout(() => {
+  //     const el = document.getElementById("booking");
+  //     if (el) {
+  //       el.scrollIntoView({ behavior: "smooth", block: "start" });
+  //     }
+  //     scrollTimer.current = null;
+  //   }, 0);
+  // };
+
   const handleScrollToBooking = () => {
     setSelectedTopic("general");
 
-    // If not already on Home, navigate with hash and let ScrollToTop handle it.
-    if (location.pathname !== "/") {
-      navigate("/#booking");
-      return;
+    if (location.pathname === "/") {
+      // Already on home → just scroll to the section
+      document.getElementById("booking")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    } else {
+      // Go home WITHOUT a hash; pass state to request a one-time scroll
+      navigate("/", { state: { scrollTo: "booking" } });
     }
-
-    // Already on Home: scroll immediately (no long delay).
-    if (scrollTimer.current) clearTimeout(scrollTimer.current);
-    scrollTimer.current = setTimeout(() => {
-      const el = document.getElementById("booking");
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-      scrollTimer.current = null;
-    }, 0);
   };
 
   return (

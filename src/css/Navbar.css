@@ -441,7 +441,7 @@
     z-index: 1100;
 
     /* frosted background to match navbar */
-    background-color: rgba(103, 99, 99, 0.58);
+    background-color: rgba(103, 99, 99, 0.98);
     backdrop-filter: blur(10px) saturate(130%);
     -webkit-backdrop-filter: blur(10px) saturate(130%);
   }
@@ -450,7 +450,7 @@
   .navbar .dropdown-menu .dropdown-item {
     display: inline-block;
     padding: 0.75rem 1.25rem;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     font-weight: 500;
     color: #0a0a0a;
     background: transparent;

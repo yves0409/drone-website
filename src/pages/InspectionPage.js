@@ -42,13 +42,25 @@ const InspectionPage = () => {
   return (
     <div className="inspection-wrapper">
       <div className="video-banner">
-        <video
+        {/* <video
           className="inspection-video"
           autoPlay
           muted
           loop
           playsInline
-          preload="auto" /* or try "metadata" or "none" depending on your needs */
+          preload="metadata"
+        >
+          <source src="/videos/inspection_1080p_web.mp4" type="video/mp4" />
+        </video> */}
+
+        <video
+          className="background-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/assets/inspection-poster.webp"
         >
           <source src="/videos/inspection_1080p_web.mp4" type="video/mp4" />
         </video>

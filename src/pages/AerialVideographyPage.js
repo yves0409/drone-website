@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import "../css/AerialVideographyPage.css";
 import { useTranslation } from "react-i18next";
 import {
@@ -42,7 +41,26 @@ const AerialVideographyPage = () => {
   return (
     <div className="aerial-wrapper">
       <div className="video-banner">
-        <video autoPlay muted loop playsInline className="aerial-video">
+        {/* <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="aerial-video"
+        >
+          <source src="/videos/areal_1080_web.mp4" type="video/mp4" />
+        </video> */}
+
+        <video
+          className="background-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/assets/aereal-poster.webp"
+        >
           <source src="/videos/areal_1080_web.mp4" type="video/mp4" />
         </video>
 

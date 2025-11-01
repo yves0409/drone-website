@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
@@ -19,10 +20,42 @@ import WeddingsAndEventsPage from "./pages/WeddingsAndEventsPage";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import { TopicProvider } from "./context/TopicContext";
 import PrivacyPolicy from "./pages/PrivacyPolicyPage";
-import ScrollToTop from "./components/ScrollToTop";
+//import ScrollToTop from "./components/ScrollToTop";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const App = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  // A) Disable browser scroll history memory between routes
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  // B) Always reset to top on real route changes (no hash)
+  useEffect(() => {
+    // Only when the path changes; not for hash/state noise
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0; // extra safety
+    document.body.scrollTop = 0; // extra safety
+  }, [location.pathname]);
+
+  // C) Handle one-time scroll to booking when we *intentionally* asked for it
+  useEffect(() => {
+    if (location.pathname === "/" && location.state?.scrollTo === "booking") {
+      requestAnimationFrame(() => {
+        document.getElementById("booking")?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+      // Clear the state so future Home visits land at the hero
+      navigate("/", { replace: true, state: null });
+    }
+  }, [location.pathname, location.state, navigate]);
 
   // Define paths where the navbar should be hidden
   const hideNavbarOnPaths = [
@@ -46,7 +79,7 @@ const App = () => {
     <>
       <TopicProvider>
         {!hideNavbar && <Navbar />}
-
+        {/* <ScrollToTop /> */}
         <Routes>
           <Route
             path="/"
@@ -80,7 +113,7 @@ const App = () => {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
         <ScrollToTopButton />
-        <ScrollToTop />
+
         <Footer />
       </TopicProvider>
     </>

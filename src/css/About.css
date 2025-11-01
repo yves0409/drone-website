@@ -83,3 +83,29 @@
     justify-content: center;
   }
 }
+
+:root {
+  --nav-h: 88px;
+} /* set to your real navbar height */
+
+/* Full-viewport About, centered content */
+.about-section {
+  min-height: calc(100svh - var(--nav-h));
+  /* fallbacks for older browsers */
+  min-height: calc(100dvh - var(--nav-h));
+  display: grid;
+  align-items: center; /* vertical center */
+  /* optional spacing inside */
+  padding-block: clamp(16px, 4vh, 48px);
+  overflow: hidden; /* prevent inner shadows/images from spilling */
+}
+
+/* When jumping to #about, avoid being hidden under the sticky/absolute navbar */
+#about {
+  scroll-margin-top: var(--nav-h);
+}
+
+/* Make sure Gallery doesn't “pull up” */
+.about-section + .gallery-section {
+  margin-top: 0; /* or add padding-top inside about instead */
+}
