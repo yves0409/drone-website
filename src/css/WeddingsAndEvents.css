@@ -92,3 +92,48 @@
   text-align: left;
   color: #222;
 }
+
+.page-banner {
+  position: relative;
+  min-height: 60vh;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.8s ease-out, transform 1.2s ease-out;
+}
+
+.page-banner.is-ready {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hero image */
+.banner-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  display: block;
+  filter: brightness(0.95);
+}
+
+/* Overlay gradient */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.55) 50%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+}
+
+.page-banner .container {
+  position: relative;
+  z-index: 2;
+}

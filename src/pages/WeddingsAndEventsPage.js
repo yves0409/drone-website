@@ -1,36 +1,29 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { FaHeart, FaGlassCheers, FaCameraRetro, FaMusic } from "react-icons/fa";
-import weddingBanner from "../assets/wedding-banner.png"; // Replace with your actual path
 import "../css/WeddingsAndEvents.css";
+
 import CustomHomeButton from "../components/CustomHomeButton";
+import SectionBanner from "../components/SectionBanner";
 
 const WeddingsAndEventsPage = () => {
   const { t } = useTranslation("event");
 
   return (
     <>
-      {/* Hero Banner */}
-      <section
-        className="weddings-hero d-flex align-items-center text-white"
-        style={{
-          backgroundImage: `url(${weddingBanner})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          minHeight: "60vh",
-        }}
+      {/* === Hero Banner === */}
+      <SectionBanner
+        image="wedding-banner"
+        title={t("weddings_title")}
+        subtitle={t("weddings_subtitle")}
+        overlay="light" // weddings usually look nicer brighter
       >
-        <div className="position-absolute top-0 start-0 m-4 z-2">
+        <div className="position-absolute top-0 start-0 m-4">
           <CustomHomeButton />
         </div>
-        <div className="overlay" />
-        <div className="container text-center position-relative z-2">
-          <h1 className="display-4 ">{t("weddings_title")}</h1>
-          <p className="lead">{t("weddings_subtitle")}</p>
-        </div>
-      </section>
+      </SectionBanner>
 
-      {/* <section className="py-5 bg-light text-center"> */}
+      {/* === Content Section === */}
       <section className="textured-section text-center">
         <div className="container">
           <div className="text-start mx-auto content-wrapper">

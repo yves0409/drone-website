@@ -25,23 +25,23 @@
   z-index: 0;
 }
 
-.video-overlay {
+.aerial-wrapper .video-overlay {
   position: relative;
   z-index: 1;
   color: white;
   text-align: center;
   padding-top: 15vh;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.01);
   height: 100%;
 }
 
-.video-overlay h1 {
+.aerial-wrapper .video-overlay h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-.video-overlay p {
+.aerial-wrapper .video-overlay p {
   font-size: 1.2rem;
   max-width: 800px;
   margin: 0 auto;

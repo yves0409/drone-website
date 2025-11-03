@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import "../css/InspectionPage.css";
 import { useTranslation } from "react-i18next";
 import {
@@ -14,6 +13,7 @@ import {
 import AnimatedButtons from "../components/AnimatedButtons";
 import DroneTitles from "../components/DroneTitles";
 import CustomHomeButton from "../components/CustomHomeButton";
+import VideoSectionBanner from "../components/VideoSectionBanner";
 
 const InspectionPage = () => {
   const { t } = useTranslation("services");
@@ -41,36 +41,19 @@ const InspectionPage = () => {
 
   return (
     <div className="inspection-wrapper">
-      <div className="video-banner">
-        {/* <video
-          className="inspection-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        >
-          <source src="/videos/inspection_1080p_web.mp4" type="video/mp4" />
-        </video> */}
-
-        <video
-          className="background-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/assets/inspection-poster.webp"
-        >
-          <source src="/videos/inspection_1080p_web.mp4" type="video/mp4" />
-        </video>
-
-        <CustomHomeButton />
-        <div className="video-overlay">
-          <h1>{t("inspection_title")}</h1>
-          <p>{t("inspection_subtitle")}</p>
-        </div>
-      </div>
+      <VideoSectionBanner
+        title={t("construction_title")}
+        subtitle={t("construction_subtitle")}
+        overlay="light"
+        minHeight="70vh"
+        floating={<CustomHomeButton />}
+        sources={[
+          // include webm for better compression if available
+          { src: "/videos/inspection_1080p_web.webm", type: "video/webm" },
+          { src: "/videos/inspection_1080p_web.mp4", type: "video/mp4" },
+        ]}
+        poster="/assets/inspection d-poster.webp"
+      />
 
       <section className="inspection-grid">
         <div className="lined-title-wrapper centered">

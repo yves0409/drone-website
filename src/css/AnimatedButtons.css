@@ -128,3 +128,52 @@
 .btn-glow-fill:hover {
   color: white;
 }
+
+/* Wrapper + section title */
+.animated-buttons-wrapper {
+  padding: clamp(1.5rem, 1rem + 2vw, 4rem) 2rem;
+}
+.animated-buttons-title {
+  font-size: clamp(1.1rem, 0.95rem + 1.2vw, 1.75rem); /* ~18px → ~28px */
+  margin-bottom: clamp(1rem, 0.6rem + 2vw, 2rem);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+/* Row spacing */
+.animated-button-row {
+  gap: clamp(0.75rem, 0.5rem + 1vw, 2rem);
+}
+
+/* Shared button tweaks */
+.btn-slide-icon,
+.btn-animated-border,
+.btn-glow-fill {
+  font-size: clamp(0.85rem, 0.8rem + 0.4vw, 1rem); /* ~13.6px → 16px */
+  padding: clamp(0.55rem, 0.45rem + 0.6vw, 0.9rem)
+    clamp(1rem, 0.9rem + 1vw, 1.8rem); /* tighter on phones */
+  border-radius: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+/* Icon sizing follows text size automatically */
+.btn-slide-icon .icon {
+  font-size: 1em;
+}
+
+/* Optional: calmer look on tiny phones */
+@media (max-width: 480px) {
+  .animated-buttons-title,
+  .btn-slide-icon,
+  .btn-animated-border,
+  .btn-glow-fill {
+    text-transform: none; /* drop uppercase for readability */
+    letter-spacing: 0.01em;
+  }
+  /* Stack buttons full-width if you prefer */
+  .animated-button-row > * {
+    flex: 1 1 100%;
+    max-width: 28rem; /* keeps them from getting too wide */
+  }
+}

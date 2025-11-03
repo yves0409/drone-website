@@ -1,4 +1,4 @@
-/* === LANDING PAGE CONTAINER === */
+/* ===== LANDING PAGE CONTAINER ===== */
 .landing-page {
   position: relative;
   width: 100%;
@@ -6,7 +6,7 @@
   overflow: clip;
   isolation: isolate;
 
-  /* fade-in after first video frame */
+  /* fade-in after the POSTER loads */
   opacity: 0;
   transition: opacity 320ms ease;
 }
@@ -15,19 +15,21 @@
 }
 
 /* Bottom fade */
-.fade-transition {
+.landing-page .fade-transition {
   position: absolute;
   left: 0;
   right: 0;
   bottom: -1px;
   height: clamp(96px, 12vh, 220px);
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #f9f9f9 100%);
-  z-index: 3;
+  z-index: 4;
   pointer-events: none;
 }
 
-/* === BACKGROUND VIDEO === */
-.background-video {
+/* ===== MEDIA LAYERS ===== */
+/* Only the BACKGROUND poster <picture> is absolute */
+.landing-page .hero-poster,
+.landing-page .background-poster {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -36,54 +38,72 @@
   object-position: center;
   display: block;
   max-width: none;
-  z-index: 0;
   pointer-events: none;
+  z-index: 0; /* base layer under overlays */
 }
 
-/* === DARK OVERLAY === */
-.video-overlay {
+/* Poster cross-fade when video is ready */
+.landing-page .background-poster {
+  opacity: 1;
+  transition: opacity 400ms ease;
+}
+.landing-page .background-poster.is-swapped {
+  opacity: 0;
+}
+
+/* Video sits under overlays (same base layer as poster) */
+.landing-page .background-video {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.15) 0%,
-    rgba(0, 0, 0, 0.65) 55%,
-    rgba(0, 0, 0, 0.75) 100%
-  );
-  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  max-width: none;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* === MAIN CONTENT (centered) === */
-.content-overlay {
+/* Dark gradient overlay above media */
+
+.landing-page .video-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.06) 0%,
+    rgba(0, 0, 0, 0.32) 55%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+}
+
+/* ===== CENTERED CONTENT (logo + headings) ===== */
+.landing-page .content-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
-  color: white;
+  color: #fff;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-inline: clamp(16px, 4vw, 48px);
-  /* one dial for spacing between logo, title, subtitle */
-  /* gap: clamp(0.25rem, 0.8vw, 0.6rem); */
   gap: clamp(0.8rem, 1.4vw, 1.25rem);
 }
 
-/* === LOGO WRAPPER (no text styles here!) === */
+/* Logo wrapper */
 .brand_name_hero {
   animation: fadeSlide 1s ease-out forwards;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  line-height: 0; /* critical: no extra height */
+  line-height: 0;
 }
 .brand_name_hero .logo {
   width: clamp(230px, 20vw, 460px);
   height: auto;
   display: block;
-  /* remove extra spacing/shift that was creating gap */
   margin: 0;
   transform: none;
   filter: drop-shadow(0 0 14px rgba(255, 204, 102, 0.25));
@@ -94,8 +114,7 @@
   filter: drop-shadow(0 0 20px rgba(255, 204, 102, 0.45));
 }
 
-/* === HERO TITLE (this is your “Elevate your Vision” text) === */
-/* IMPORTANT: do NOT target .content-overlay h1, because the logo wrapper is an h1 */
+/* Headline + subtext */
 .hero-title {
   font-family: "Orbitron", "Poppins", "SF Pro Display", system-ui, -apple-system,
     BlinkMacSystemFont, sans-serif;
@@ -113,8 +132,7 @@
   animation: fadeUp 1s ease forwards 0.3s;
 }
 
-/* Subtext */
-.content-overlay h5 {
+.landing-page .content-overlay h5 {
   font-family: "Poppins", "SF Pro Text", system-ui, -apple-system,
     BlinkMacSystemFont, sans-serif;
   font-weight: 400;
@@ -128,10 +146,9 @@
   opacity: 0;
   transform: translateY(15px);
   animation: fadeUp 1s ease forwards 0.6s;
-  /* was: gap: clamp(0.25rem, 0.8vw, 0.6rem); */
 }
 
-/* === ANIMATIONS === */
+/* ===== ANIMATIONS ===== */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -153,15 +170,15 @@
   }
 }
 
-/* === RESPONSIVE === */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .content-overlay {
+  .landing-page .content-overlay {
     padding: 1rem;
   }
   .hero-title {
     font-size: 2rem;
   }
-  .content-overlay h5 {
+  .landing-page .content-overlay h5 {
     font-size: 1.05rem;
   }
 }
@@ -169,7 +186,7 @@
   .hero-title {
     font-size: 1.6rem;
   }
-  .content-overlay h5 {
+  .landing-page .content-overlay h5 {
     font-size: 1rem;
   }
 }
@@ -178,4 +195,34 @@
 html,
 body {
   overflow-x: hidden;
+}
+
+.landing-page {
+  opacity: 0;
+  transition: opacity 320ms ease;
+}
+.landing-page.is-ready {
+  opacity: 1;
+}
+
+.landing-page .background-video {
+  z-index: 0;
+}
+.landing-page .background-poster {
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 400ms ease;
+}
+.landing-page .background-poster.is-swapped {
+  opacity: 0;
+}
+
+.landing-page .video-overlay {
+  z-index: 2;
+}
+.landing-page .content-overlay {
+  z-index: 3;
+}
+.landing-page .fade-transition {
+  z-index: 4;
 }

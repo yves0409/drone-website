@@ -74,3 +74,129 @@
   width: 100%;
   max-width: 600px;
 }
+
+/* Hero container */
+.re-hero {
+  position: relative;
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  isolation: isolate;
+  background: #101818; /* fallback color while image decodes */
+  opacity: 1; /* visible */
+}
+
+/* Image behaves like background-size: cover */
+.re-hero picture,
+.re-hero__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  opacity: 0; /* fade-in after onLoad */
+  transition: opacity 0.35s ease;
+}
+.re-hero.is-ready .re-hero__media {
+  opacity: 1;
+}
+
+/* Overlay */
+.re-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.45) 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+/* Content above everything */
+.re-hero__content {
+  z-index: 2;
+}
+
+.real-estate-banner {
+  position: relative;
+  min-height: 60vh;
+  overflow: hidden;
+}
+
+.banner-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.55) 50%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  z-index: 1;
+}
+
+.real-estate-banner .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* === HERO SECTION WITH FADE-IN === */
+.real-estate-banner {
+  position: relative;
+  min-height: 60vh;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.8s ease-out, transform 1.2s ease-out;
+}
+
+.real-estate-banner.is-ready {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* === HERO IMAGE & OVERLAY === */
+.banner-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  display: block;
+  filter: brightness(0.95);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.55) 50%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+}
+
+.real-estate-banner .container {
+  position: relative;
+  z-index: 2;
+}

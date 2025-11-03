@@ -13,6 +13,7 @@ import {
 import AnimatedButtons from "../components/AnimatedButtons";
 import DroneTitles from "../components/DroneTitles";
 import CustomHomeButton from "../components/CustomHomeButton";
+import VideoSectionBanner from "../components/VideoSectionBanner";
 
 const AerialVideographyPage = () => {
   const { t } = useTranslation("services");
@@ -40,36 +41,19 @@ const AerialVideographyPage = () => {
 
   return (
     <div className="aerial-wrapper">
-      <div className="video-banner">
-        {/* <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="aerial-video"
-        >
-          <source src="/videos/areal_1080_web.mp4" type="video/mp4" />
-        </video> */}
-
-        <video
-          className="background-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/assets/aereal-poster.webp"
-        >
-          <source src="/videos/areal_1080_web.mp4" type="video/mp4" />
-        </video>
-
-        <CustomHomeButton />
-        <div className="video-overlay">
-          <h1>{t("aerial_title")}</h1>
-          <p>{t("aerial_subtitle")}</p>
-        </div>
-      </div>
+      <VideoSectionBanner
+        title={t("aerial_title")}
+        subtitle={t("aerial_subtitle")}
+        overlay="light"
+        minHeight="70vh"
+        floating={<CustomHomeButton />}
+        sources={[
+          // include webm for better compression if available
+          { src: "/videos/areal_1080_web.webm", type: "video/webm" },
+          { src: "/videos/areal_1080_web.mp4", type: "video/mp4" },
+        ]}
+        poster="/assets/aereal-poster.webp"
+      />
 
       <section className="aerial-grid">
         <div className="lined-title-wrapper centered">

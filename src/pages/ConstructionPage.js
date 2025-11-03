@@ -1,12 +1,12 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import SectionBanner from "../components/SectionBanner";
 import {
   FaHardHat,
   FaBuilding,
   FaSolarPanel,
   FaIndustry,
 } from "react-icons/fa";
-import constructionImg from "../assets/construction-banner.png";
 import "../css/Construction.css";
 import CustomHomeButton from "../components/CustomHomeButton";
 
@@ -15,26 +15,18 @@ const ConstructionPage = () => {
 
   return (
     <>
-      {/* Hero Banner */}
-      <section
-        className="construction-hero d-flex align-items-center text-white"
-        style={{
-          backgroundImage: `url(${constructionImg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          minHeight: "60vh",
-        }}
+      <SectionBanner
+        image="construction-banner"
+        title={t("construction_title")}
+        subtitle={t("construction_subtitle")}
+        overlay="medium"
       >
-        <div className="position-absolute top-0 start-0 m-4 z-2">
+        <div className="position-absolute top-0 start-0 m-4">
           <CustomHomeButton />
         </div>
-        <div className="overlay" />
-        <div className="container text-center position-relative z-2">
-          <h1 className="display-4 ">{t("construction_title")}</h1>
-          <p className="lead">{t("construction_subtitle")}</p>
-        </div>
-      </section>
+      </SectionBanner>
 
+      {/* === Content Section === */}
       <section className="textured-section text-center">
         <div className="container">
           <div className="text-start mx-auto content-wrapper">

@@ -1,4 +1,3 @@
-/* === Base wrapper === */
 .realestate-wrapper {
   background-color: #f4efe7;
   background-image: url("../assets/asfalt-dark.png");
@@ -7,7 +6,7 @@
   color: #1f1f1f;
 }
 
-/* === 🎥 Video banner === */
+/* --- Banner --- */
 .video-banner {
   position: relative;
   height: 60vh;
@@ -16,8 +15,7 @@
 
 .realestate-video {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -25,34 +23,37 @@
   z-index: 0;
 }
 
-.video-overlay {
+.realestate-wrapper .video-overlay {
   position: relative;
   z-index: 1;
-  color: white;
+  color: #fff;
   text-align: center;
   padding-top: 15vh;
-  background: rgba(0, 0, 0, 0.3);
   height: 100%;
+  background: rgba(0, 0, 0, 0.18); /* lighter, more modern */
 }
 
-.video-overlay h1 {
-  font-size: 3rem;
+.realestate-wrapper .video-overlay h1 {
+  /* ~28px on small phones → ~48px on large screens */
+  font-size: clamp(1.75rem, 1.2rem + 2.2vw, 3rem);
   margin-bottom: 1rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
-.video-overlay p {
-  font-size: 1.2rem;
-  max-width: 800px;
+.realestate-wrapper .video-overlay p {
+  /* ~14–18px responsive */
+  font-size: clamp(0.95rem, 0.88rem + 0.5vw, 1.125rem);
+  max-width: 56ch;
   margin: 0 auto;
   line-height: 1.6;
-  color: beige;
-  text-shadow: 0 2px 6px rgba(238, 7, 7, 0.979);
+  color: #f4f1ea;
+  /* soften the strong red shadow */
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
 }
 
-/* === Section Layout === */
+/* --- Section title + grid --- */
 .realestate-grid {
-  padding: 4rem 2rem;
+  padding: clamp(2.25rem, 1.5rem + 2vw, 4rem) 2rem;
   text-align: center;
 }
 
@@ -60,17 +61,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
+  gap: 0.75rem;
+  margin-bottom: clamp(1.5rem, 1rem + 2vw, 3rem);
 }
 
 .title-icon {
-  font-size: 3rem;
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 3rem);
   color: #c56c29;
 }
 
 .lined-title {
-  font-size: 2rem;
+  font-size: clamp(1.25rem, 1.05rem + 1.2vw, 2rem);
   position: relative;
   display: inline-block;
   text-transform: uppercase;
@@ -96,53 +97,35 @@
   width: 100%;
 }
 
-/* === Grid Layout === */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  max-width: none !important;
+  gap: clamp(1rem, 0.75rem + 1vw, 2rem);
+  max-width: 1200px;
   padding: 1rem 2rem;
   margin: 0 auto;
-
   width: 100%;
 }
 
-/* Each card fills 1 fraction of the grid */
 .grid-card {
   background: #fffaf3;
-  padding: 2rem;
+  padding: clamp(1.25rem, 1rem + 1vw, 2rem);
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   text-align: center;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   width: 100%;
-  max-width: none;
 }
 
-/* Breakpoint: 2 cards per row */
-@media (max-width: 1024px) {
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.grid-card:hover {
+  transform: translateY(-2px);
 }
 
-/* Breakpoint: 1 card per row */
-@media (max-width: 600px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* .grid-card:hover {
-  transform: translateY(-6px);
-} */
-
-/* === Icons & Content === */
 .grid-icon {
-  font-size: 60px;
+  /* ~36px → 60px */
+  font-size: clamp(2.25rem, 1.6rem + 2vw, 3.75rem);
   color: #c56c29;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .animate-icon {
@@ -160,52 +143,37 @@
 }
 
 .grid-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.6rem;
+  font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.4rem);
+  margin-bottom: 0.5rem;
   color: #1f1f1f;
 }
 
 .grid-card p {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.1rem);
   line-height: 1.6;
   color: #333;
-  max-width: 320px;
+  max-width: 36ch;
+  margin: 0 auto;
 }
 
-/* === Responsive Breakpoints === */
-/* Breakpoint: 2 cards per row */
+/* --- Responsive: single source of truth --- */
 @media (max-width: 1024px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Breakpoint: 1 card per row */
-@media (max-width: 600px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 600px) {
   .grid-container {
     grid-template-columns: 1fr;
   }
 
-  .video-overlay h1 {
-    font-size: 2rem;
+  /* tighter banner spacing on phones */
+  .realestate-wrapper .video-overlay {
+    padding-top: 12vh;
   }
 
-  .video-overlay p {
-    font-size: 1rem;
-    padding: 0 1rem;
-  }
-
-  .grid-icon {
-    font-size: 44px;
-  }
-
-  .grid-card {
-    padding: 2rem;
-  }
+  /* If you want the banner a bit shorter on phones, uncomment:
+  .video-banner { height: 52vh; }
+  */
 }

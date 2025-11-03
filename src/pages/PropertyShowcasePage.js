@@ -1,11 +1,19 @@
 import React from "react";
 import "../css/PropertyShowcasePage.css";
 import { useTranslation } from "react-i18next";
-import { FaHome, FaVideo, FaImages, FaStreetView } from "react-icons/fa";
-import { FaArrowRight, FaClipboardList, FaEnvelope } from "react-icons/fa";
+import {
+  FaHome,
+  FaVideo,
+  FaImages,
+  FaStreetView,
+  FaArrowRight,
+  FaClipboardList,
+  FaEnvelope,
+} from "react-icons/fa";
 import AnimatedButtons from "../components/AnimatedButtons";
 import DroneTitles from "../components/DroneTitles";
 import CustomHomeButton from "../components/CustomHomeButton";
+import VideoSectionBanner from "../components/VideoSectionBanner";
 
 const PropertyShowcasePage = () => {
   const { t } = useTranslation("services");
@@ -33,41 +41,25 @@ const PropertyShowcasePage = () => {
 
   return (
     <div className="realestate-wrapper">
-      <div className="video-banner">
-        {/* <video
-          className="realestate-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        >
-          <source src="/videos/property_1080p_web.mp4" type="video/mp4" />
-        </video> */}
-
-        <video
-          className="background-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/assets/property-poster.webp"
-        >
-          <source src="/videos/property_1080p_web.mp4" type="video/mp4" />
-        </video>
-
-        <CustomHomeButton />
-        <div className="video-overlay">
-          <h1>{t("real_estate_title")}</h1>
-          <p>{t("real_estate_subtitle")}</p>
-        </div>
-      </div>
+      <VideoSectionBanner
+        title={t("real_estate_title")}
+        subtitle={t("real_estate_subtitle")}
+        overlay="light"
+        minHeight="70vh"
+        floating={<CustomHomeButton />}
+        sources={[
+          // include webm for better compression if available
+          { src: "/videos/property_1080p_web.webm", type: "video/webm" },
+          { src: "/videos/property_1080p_web.mp4", type: "video/mp4" },
+        ]}
+        poster="/assets/property-poster.webp"
+      />
 
       <section className="realestate-grid">
         <div className="lined-title-wrapper centered">
           <DroneTitles title={t("service_card_showcase_title")} />
         </div>
+
         <div className="grid-container">
           <div className="grid-card">
             <FaHome className="grid-icon animate-icon" />

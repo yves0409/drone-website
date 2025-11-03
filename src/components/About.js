@@ -1,12 +1,15 @@
 import React from "react";
 import profilePic from "../assets/about_temp.jpg";
-// import profilePic from "../assets/profile.png";
 import "../css/About.css";
 import { useTranslation } from "react-i18next";
 import SEO from "../components/SEO";
+import useBootstrapIcons from "../hooks/UseBootstrapIcons";
 
 const About = () => {
   const { t } = useTranslation("about");
+
+  // ✅ Load bootstrap-icons CSS only when this component is used
+  useBootstrapIcons();
 
   return (
     <>
@@ -17,7 +20,6 @@ const About = () => {
         className="about-section text-light position-relative"
       >
         <div className="about-bg" />
-
         <div className="about-overlay" />
 
         <div className="container position-relative">
@@ -43,20 +45,28 @@ const About = () => {
 
               <div className="d-flex flex-wrap justify-content-center gap-4 mt-4">
                 <div className="text-center">
-                  <i className="bi bi-shield-check fs-3 text-primary"></i>
-
+                  <i
+                    className="bi bi-shield-check fs-3 text-primary"
+                    aria-hidden="true"
+                  ></i>
                   <p className="fw-medium mt-2 mb-0 text-light">
                     Licensed Drone Pilot
                   </p>
                 </div>
                 <div className="text-center">
-                  <i className="bi bi-award fs-3 text-success"></i>
+                  <i
+                    className="bi bi-award fs-3 text-success"
+                    aria-hidden="true"
+                  ></i>
                   <p className="fw-medium mt-2 mb-0 text-light">
                     Years Experience
                   </p>
                 </div>
                 <div className="text-center">
-                  <i className="bi bi-house-check fs-3 text-danger"></i>
+                  <i
+                    className="bi bi-house-check fs-3 text-danger"
+                    aria-hidden="true"
+                  ></i>
                   <p className="fw-medium mt-2 mb-0 text-light">
                     Real Estate Specialist
                   </p>

@@ -1,6 +1,5 @@
 import React from "react";
 import "../css/RealEstate.css";
-import bannerImg from "../assets/realestate-banner.png";
 import {
   FaVideo,
   FaMapMarkedAlt,
@@ -10,30 +9,23 @@ import {
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import CustomHomeButton from "../components/CustomHomeButton";
+import SectionBanner from "../components/SectionBanner";
 
 const RealEstatePage = () => {
   const { t } = useTranslation("realestate");
 
   return (
     <>
-      <section
-        className="real-estate-banner d-flex align-items-center text-white"
-        style={{
-          backgroundImage: `url(${bannerImg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          minHeight: "60vh",
-        }}
+      <SectionBanner
+        image="realestate-banner"
+        title={t("real_estate_title")}
+        subtitle={t("real_estate_subtitle")}
+        overlay="light"
       >
-        <div className="position-absolute top-0 start-0 m-4 z-2">
+        <div className="position-absolute top-0 start-0 m-4">
           <CustomHomeButton />
         </div>
-        <div className="overlay" />
-        <div className="container text-center position-relative z-2">
-          <h1 className="display-4 ">{t("real_estate_title")}</h1>
-          <p className="lead">{t("real_estate_subtitle")}</p>
-        </div>
-      </section>
+      </SectionBanner>
 
       <section className="textured-section text-center">
         <div className="container">

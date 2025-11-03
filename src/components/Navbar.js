@@ -1,8 +1,7 @@
 import React, { useRef, useEffect } from "react";
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../css/Navbar.css";
-import LanguageSwitcher from "./LanguageSwitcher";
+import LanguageSwitcher from "./LanguageSwitcher"; // ✅ ensure this import exists
 import { useTranslation } from "react-i18next";
 import { useTopic } from "../context/TopicContext";
 import { FaArrowRight } from "react-icons/fa";
@@ -16,7 +15,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const scrollTimer = useRef(null);
 
-  // Clear any pending scroll when the route changes (prevents late scroll on next page)
   useEffect(() => {
     return () => {
       if (scrollTimer.current) {
@@ -28,8 +26,6 @@ const Navbar = () => {
 
   useEffect(() => {
     const closeAll = () => {
-      // 1) Close ANY open dropdowns (desktop/mobile)
-      // Remove 'show' on menu + parent and reset aria
       document.querySelectorAll(".dropdown-menu.show").forEach((menu) => {
         menu.classList.remove("show");
         const parent = menu.closest(".dropdown");
@@ -40,7 +36,6 @@ const Navbar = () => {
         if (toggle) toggle.setAttribute("aria-expanded", "false");
       });
 
-      // 2) Close the mobile navbar collapse if open
       const openCollapse = document.querySelector(".navbar-collapse.show");
       const openToggler = document.querySelector(
         '.navbar-toggler[aria-expanded="true"]'
@@ -48,14 +43,11 @@ const Navbar = () => {
       if (openCollapse && openToggler) {
         openCollapse.classList.remove("show");
         openToggler.setAttribute("aria-expanded", "false");
-        // also remove the 'collapsing' inline style if any
         openCollapse.style.height = "";
       }
     };
 
     const onScrollish = () => closeAll();
-
-    // Attach to MANY possible scrollers (scroll doesn't bubble)
     const targets = [
       window,
       document,
@@ -71,10 +63,8 @@ const Navbar = () => {
 
     const opts = { passive: true };
     targets.forEach((t) => t.addEventListener("scroll", onScrollish, opts));
-    // also react to wheel/touch (some setups don't fire scroll immediately)
     window.addEventListener("wheel", onScrollish, opts);
     window.addEventListener("touchmove", onScrollish, opts);
-    // keyboard scrolling
     const onKey = (e) => {
       if (
         [
@@ -99,37 +89,14 @@ const Navbar = () => {
     };
   }, []);
 
-  // const handleScrollToBooking = () => {
-  //   setSelectedTopic("general");
-
-  //   // If not already on Home, navigate with hash and let ScrollToTop handle it.
-  //   if (location.pathname !== "/") {
-  //     navigate("/#booking");
-  //     return;
-  //   }
-
-  //   // Already on Home: scroll immediately (no long delay).
-  //   if (scrollTimer.current) clearTimeout(scrollTimer.current);
-  //   scrollTimer.current = setTimeout(() => {
-  //     const el = document.getElementById("booking");
-  //     if (el) {
-  //       el.scrollIntoView({ behavior: "smooth", block: "start" });
-  //     }
-  //     scrollTimer.current = null;
-  //   }, 0);
-  // };
-
   const handleScrollToBooking = () => {
     setSelectedTopic("general");
-
     if (location.pathname === "/") {
-      // Already on home → just scroll to the section
       document.getElementById("booking")?.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
     } else {
-      // Go home WITHOUT a hash; pass state to request a one-time scroll
       navigate("/", { state: { scrollTo: "booking" } });
     }
   };
@@ -137,6 +104,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-xl transparent-navbar position-absolute top-0 start-0 w-100 px-4">
       <div className="container-fluid">
+        {/* Brand */}
         <Link
           className="navbar-brand d-flex align-items-center"
           to="/"
@@ -147,6 +115,12 @@ const Navbar = () => {
           </div>
         </Link>
 
+        {/* ✅ Language switcher next to logo on DESKTOP only */}
+        <div className="ms-3 d-none d-xl-flex align-items-center">
+          <LanguageSwitcher />
+        </div>
+
+        {/* Toggler */}
         <button
           className="navbar-toggler"
           type="button"
@@ -159,6 +133,7 @@ const Navbar = () => {
           <span className="navbar-toggler-icon" />
         </button>
 
+        {/* Menu */}
         <div className="collapse navbar-collapse w-100" id="mainNavbar">
           <div className="d-flex w-100 flex-column flex-md-row justify-content-between align-items-md-center">
             <ul className="navbar-nav mx-auto mb-3 mb-md-0">
@@ -245,7 +220,6 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    {/* In-page anchors on the current page will be handled by ScrollToTop hash logic */}
                     <Link className="dropdown-item" to="#about">
                       {t("nav_item_3_sub_3")}
                     </Link>
@@ -259,8 +233,11 @@ const Navbar = () => {
               </li>
             </ul>
 
+            {/* Right actions */}
             <div className="nav-actions-container">
-              <LanguageSwitcher />
+              {/* ✅ Mobile/tablet language switcher (hidden on desktop) */}
+              <LanguageSwitcher className="d-xl-none" />
+
               <div className="nav-button-wrapper">
                 <button
                   className="btn-slide-icon-2"
@@ -271,6 +248,7 @@ const Navbar = () => {
                 </button>
               </div>
             </div>
+            {/* /Right actions */}
           </div>
         </div>
       </div>
