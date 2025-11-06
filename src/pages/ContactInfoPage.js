@@ -9,6 +9,8 @@ import {
 import { useTranslation } from "react-i18next";
 import CustomHomeButton from "../components/CustomHomeButton";
 
+const SUPPORT_EMAIL = process.env.REACT_APP_SUPPORT_EMAIL || "info@airgrid.be";
+
 const ContactInfoPage = () => {
   const { t } = useTranslation("contact");
   return (
@@ -28,7 +30,8 @@ const ContactInfoPage = () => {
             <ul className="list-unstyled fs-5 contact-list">
               <li>
                 <span className="contact-icon">📍</span>{" "}
-                <strong>{t("contact_company")}:</strong> AirGrid
+                <strong>{t("contact_company")}:</strong> AirGrid (Supported By
+                Staterslabo West-Vlaanderen CV)
               </li>
 
               <li>
@@ -43,16 +46,11 @@ const ContactInfoPage = () => {
 
               <li>
                 <strong>📧 {t("contact_email")}:</strong>{" "}
-                <a
-                  href="mailto:info@airgrid.be"
-                  className="text-decoration-none text-dark"
-                >
-                  info@airgrid.be
-                </a>
+                <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
               </li>
               <li>
                 <span className="contact-icon">🆔</span>{" "}
-                <strong>{t("contact_registration")}:</strong> BE Coming soon
+                <strong>{t("contact_registration")}:</strong> BE 0810 881 792
               </li>
             </ul>
 

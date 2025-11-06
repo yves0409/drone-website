@@ -5,7 +5,6 @@ import LanguageSwitcher from "./LanguageSwitcher"; // ✅ ensure this import exi
 import { useTranslation } from "react-i18next";
 import { useTopic } from "../context/TopicContext";
 import { FaArrowRight } from "react-icons/fa";
-import { ReactComponent as BrandMark } from "../assets/svg/airgrid-mark.svg";
 
 const Navbar = () => {
   const { t } = useTranslation("common");
@@ -101,17 +100,40 @@ const Navbar = () => {
     }
   };
 
+  // 👇 scroll-to-top when logo is clicked
+  const handleBrandClick = (e) => {
+    // close any open mobile menu if needed here
+
+    if (location.pathname === "/") {
+      e.preventDefault();
+      document.getElementById("hero")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    } else {
+      e.preventDefault();
+      navigate("/", { state: { scrollTo: "hero" } });
+    }
+  };
+
   return (
     <nav className="navbar navbar-expand-xl transparent-navbar position-absolute top-0 start-0 w-100 px-4">
       <div className="container-fluid">
-        {/* Brand */}
         <Link
           className="navbar-brand d-flex align-items-center"
-          to="/"
           aria-label="AirGrid — Home"
+          onClick={handleBrandClick}
         >
           <div className="brand-logo-wrap">
-            <BrandMark className="brand-logo" role="img" focusable="false" />
+            <img
+              src="/assets/ag-logo-black.svg"
+              alt="AirGrid — Creative Solutions"
+              className="brand-logo"
+              width={220} /* tweak or remove; CSS can control size */
+              height={220} /* optional; safe to omit if CSS sets height */
+              decoding="async"
+              loading="eager"
+            />
           </div>
         </Link>
 
@@ -142,7 +164,8 @@ const Navbar = () => {
                 <button
                   className="nav-link dropdown-toggle"
                   data-bs-toggle="dropdown"
-                  data-bs-display="static"
+                  // data-bs-display="static"
+                  data-bs-offset="0,8"
                 >
                   {t("navbar_item_1")}
                 </button>
@@ -176,7 +199,8 @@ const Navbar = () => {
                 <button
                   className="nav-link dropdown-toggle"
                   data-bs-toggle="dropdown"
-                  data-bs-display="static"
+                  // data-bs-display="static"
+                  data-bs-offset="0,8"
                 >
                   {t("navbar_item_2")}
                 </button>
@@ -204,7 +228,8 @@ const Navbar = () => {
                 <button
                   className="nav-link dropdown-toggle"
                   data-bs-toggle="dropdown"
-                  data-bs-display="static"
+                  // data-bs-display="static"
+                  data-bs-offset="0,8"
                 >
                   {t("navbar_item_3")}
                 </button>

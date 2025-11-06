@@ -42,8 +42,8 @@ const PropertyShowcasePage = () => {
   return (
     <div className="realestate-wrapper">
       <VideoSectionBanner
-        title={t("real_estate_title")}
-        subtitle={t("real_estate_subtitle")}
+        title={t("showcase_title")}
+        subtitle={t("showcase_subtitle")}
         overlay="light"
         minHeight="70vh"
         floating={<CustomHomeButton />}

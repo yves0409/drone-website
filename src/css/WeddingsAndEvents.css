@@ -24,7 +24,8 @@
 }
 
 .textured-section {
-  background-image: url("../assets/asfalt-dark.png");
+  /* background-image: url("../assets/asfalt-dark.png"); */
+  background-image: url("../assets/asfalt-dark.webp");
   background-color: #f4efe7;
   background-repeat: repeat;
   background-size: contain;

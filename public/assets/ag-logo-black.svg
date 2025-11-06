@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="AG — Creative Solutions">
+  <defs>
+    <!-- Gold gradient -->
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#C9A34A"/>
+      <stop offset="45%" stop-color="#F6E27A"/>
+      <stop offset="100%" stop-color="#B8872B"/>
+    </linearGradient>
+    <!-- Soft outer glow on the ring -->
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Black round badge -->
+  <circle cx="256" cy="256" r="240" fill="#000"/>
+  <!-- Gold ring -->
+  <circle cx="256" cy="256" r="230" fill="none" stroke="url(#goldGrad)" stroke-width="6" filter="url(#softGlow)"/>
+
+  <!-- Drone icon (centered above text) -->
+  <g transform="translate(256,150)" fill="none" stroke="url(#goldGrad)" stroke-width="8" stroke-linecap="round">
+    <!-- arms -->
+    <path d="M-90 0 L-28 0 M28 0 L90 0"/>
+    <path d="M0 -62 L0 -8 M0 8 L0 62"/>
+    <!-- body -->
+    <circle cx="0" cy="0" r="16" fill="url(#goldGrad)" stroke="none"/>
+    <circle cx="0" cy="0" r="28"/>
+    <!-- rotors -->
+    <circle cx="-110" cy="0" r="20"/>
+    <circle cx="110"  cy="0" r="20"/>
+    <circle cx="0" cy="-85" r="20"/>
+    <circle cx="0" cy="85"  r="20"/>
+  </g>
+
+  <!-- Text -->
+  <g fill="url(#goldGrad)" text-anchor="middle">
+    <text x="256" y="320" font-family="Cinzel, 'Times New Roman', serif" font-weight="700" font-size="150" letter-spacing="2">AG</text>
+    <text x="256" y="360" font-family="Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+          font-weight="600" font-size="24" fill="#D6B86C" letter-spacing="6">
+      CREATIVE SOLUTIONS
+    </text>
+  </g>
+</svg>

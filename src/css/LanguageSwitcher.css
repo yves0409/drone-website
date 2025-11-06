@@ -1,16 +1,3 @@
-/* .lang-flag {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-}
-
-.lang-flag:hover {
-  transform: scale(1.1);
-} */
-
 /* src/css/LanguageSwitcher.css */
 .language-switcher .btn {
   border-radius: 50px;
@@ -26,6 +13,7 @@
 .language-switcher .dropdown-menu {
   inset: auto !important; /* let Bootstrap position it */
   padding: 0.25rem;
+  /* margin-top: 41px; */
   border-radius: 12px;
   backdrop-filter: blur(8px) saturate(130%);
   -webkit-backdrop-filter: blur(8px) saturate(130%);
@@ -40,4 +28,56 @@
 
 .language-switcher .dropdown-item.active {
   background: rgba(0, 0, 0, 0.06);
+}
+
+@media (min-width: 1200px) {
+  .navbar .dropdown-menu {
+    margin-top: 2.6rem;
+  }
+}
+
+/* Force this component to render in light mode regardless of OS theme */
+.language-switcher,
+.language-switcher * {
+  color-scheme: light;
+}
+
+/* Card / dropdown panel */
+.language-switcher .dropdown-menu,
+.language-switcher .ls-card {
+  background-color: #ffffff !important;
+  color: #111 !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Toggler + items */
+.language-switcher .dropdown-toggle,
+.language-switcher .dropdown-item {
+  color: #111 !important;
+}
+
+.language-switcher .dropdown-item:hover,
+.language-switcher .dropdown-item:focus {
+  background-color: rgba(0, 0, 0, 0.06);
+  color: #000 !important;
+}
+
+/* If you use a pill button */
+.language-switcher .ls-pill {
+  background: #fff !important;
+  color: #111 !important;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* Make sure the collapsed navbar panel stays light on mobile */
+@media (max-width: 1199.98px) {
+  .transparent-navbar .navbar-collapse {
+    background-color: rgba(255, 255, 255, 0.96) !important;
+    color: #111 !important;
+  }
+  .transparent-navbar .navbar-collapse .nav-link,
+  .transparent-navbar .navbar-collapse .dropdown-item {
+    color: #111 !important;
+  }
 }
