@@ -218,7 +218,7 @@ const Booking = () => {
               <h6 className="fw-semibold mb-2">{t("contact_connect")}</h6>
               <div className="d-flex gap-3 fs-4">
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/airgrid_drones/"
                   className="social-icon instagram"
                   target="_blank"
                   rel="noreferrer"
