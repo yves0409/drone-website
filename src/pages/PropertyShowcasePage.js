@@ -50,7 +50,11 @@ const PropertyShowcasePage = () => {
         sources={[
           // include webm for better compression if available
           { src: "/videos/property_1080p_web.webm", type: "video/webm" },
-          { src: "/videos/property_1080p_web.mp4", type: "video/mp4" },
+          // { src: "/videos/property_1080p_web.mp4", type: "video/mp4" },
+          {
+            src: "https://res.cloudinary.com/yves/video/upload/v1762559289/itbqve8sp0wqmd8bncfn.mp4",
+            type: "video/mp4",
+          },
         ]}
         poster="/assets/property-poster.webp"
       />

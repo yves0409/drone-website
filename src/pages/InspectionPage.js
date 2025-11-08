@@ -51,6 +51,10 @@ const InspectionPage = () => {
           // include webm for better compression if available
           { src: "/videos/inspection_1080p_web.webm", type: "video/webm" },
           { src: "/videos/inspection_1080p_web.mp4", type: "video/mp4" },
+          {
+            src: "https://res.cloudinary.com/yves/video/upload/v1762559273/lsfvmkvruja9bsvkynbm.mp4",
+            type: "video/mp4",
+          },
         ]}
         poster="/assets/inspection d-poster.webp"
       />

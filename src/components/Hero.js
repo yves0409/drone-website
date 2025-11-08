@@ -38,7 +38,12 @@ const Hero = () => {
         poster="/assets/hero-poster.avif"
         onCanPlay={onVideoCanPlay}
       >
-        <source src="/videos/hero_1080p_web.mp4" type="video/mp4" />
+        {/* <source src="/videos/hero_1080p_web.mp4" type="video/mp4" /> */}
+        <source
+          src="https://res.cloudinary.com/yves/video/upload/v1762559315/nf0dcrudclkqlegptq18.mp4"
+          type="video/mp4"
+        />
+
         <source src="/videos/hero_1080p.webm" type="video/webm" />
       </video>
 

@@ -50,7 +50,11 @@ const AerialVideographyPage = () => {
         sources={[
           // include webm for better compression if available
           { src: "/videos/areal_1080_web.webm", type: "video/webm" },
-          { src: "/videos/areal_1080_web.mp4", type: "video/mp4" },
+          // { src: "/videos/areal_1080_web.mp4", type: "video/mp4" },
+          {
+            src: "https://res.cloudinary.com/yves/video/upload/v1762559169/p4khk7yp3h7putam1ogx.mp4",
+            type: "video/mp4",
+          },
         ]}
         poster="/assets/aereal-poster.webp"
       />
