@@ -2,10 +2,31 @@
 // Serverless contact endpoint for Vercel + Resend + reCAPTCHA v2 (checkbox)
 
 export default async function handler(req, res) {
-  // Only allow POST
+  // Optional: CORS preflight (safe no-op if same-origin)
+  if (req.method === "OPTIONS") {
+    res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    return res.status(204).end();
+  }
+
   if (req.method !== "POST") {
-    res.setHeader("Allow", "POST");
+    res.setHeader("Allow", "POST, OPTIONS");
     return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  // Guard server-side env (early & clear)
+  const missing = [
+    ["RECAPTCHA_SECRET_KEY", process.env.RECAPTCHA_SECRET_KEY],
+    ["RESEND_API_KEY", process.env.RESEND_API_KEY],
+    ["RESEND_DOMAIN", process.env.RESEND_DOMAIN],
+    ["CONTACT_TO_EMAIL", process.env.CONTACT_TO_EMAIL],
+  ].filter(([, v]) => !v);
+
+  if (missing.length) {
+    return res.status(500).json({
+      error: "Server misconfigured",
+      detail: `Missing env: ${missing.map(([k]) => k).join(", ")}`,
+    });
   }
 
   try {
@@ -26,7 +47,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Missing required fields" });
     }
 
-    // 1) Verify reCAPTCHA (server-side)
+    // 1) Verify reCAPTCHA (server-side, v2 checkbox)
     const params = new URLSearchParams();
     params.append("secret", process.env.RECAPTCHA_SECRET_KEY);
     params.append("response", token);
@@ -68,8 +89,9 @@ export default async function handler(req, res) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: `AIRGRID <inbox@${process.env.RESEND_DOMAIN}>`, // must match a verified Resend domain
-        to: [process.env.CONTACT_TO_EMAIL], // where you want to receive inquiries
+        from: `AIRGRID <info@${process.env.RESEND_DOMAIN}>`, // must be a verified domain in Resend
+        to: [process.env.CONTACT_TO_EMAIL],
+        reply_to: email, // <— so you can reply straight to the sender
         subject: `New inquiry: ${topic || "Contact Form"}`,
         html,
       }),
@@ -82,6 +104,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ ok: true });
   } catch (err) {
+    console.error("contact handler error", err);
     return res
       .status(500)
       .json({ error: "Server error", detail: err?.message });
