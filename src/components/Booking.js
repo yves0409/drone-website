@@ -409,7 +409,23 @@ if (
 // Use your Vercel serverless route
 const API_URL = "/api/contact";
 
-const WHATSAPP_NUMBER = process.env.REACT_APP_WHATSAPP_NUMBER || "32478531692";
+// const WHATSAPP_NUMBER = process.env.REACT_APP_WHATSAPP_NUMBER || "32478531692";
+const RAW_WA = process.env.REACT_APP_WHATSAPP_NUMBER || "3247XXXXXXXX";
+const WA_NUMBER = RAW_WA.replace(/[^\d]/g, ""); // digits only
+const WA_TEXT = encodeURIComponent(
+  "Hello AirGrid, I'm interested in drone services"
+);
+
+// Universal web link
+const waWeb = `https://wa.me/${WA_NUMBER}?text=${WA_TEXT}`;
+// App deep link (opens native WhatsApp when present)
+const waApp = `whatsapp://send?phone=${WA_NUMBER}&text=${WA_TEXT}`;
+
+// Decide best link for this device
+const isMobile =
+  typeof navigator !== "undefined" &&
+  /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+const waHref = isMobile ? waApp : waWeb;
 
 const Booking = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -745,14 +761,27 @@ const Booking = () => {
       </div>
 
       {/* Floating WhatsApp */}
+
       <a
-        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-          "Hello AirGrid, I'm interested in drone services"
-        )}`}
+        href={waHref}
         className="floating-whatsapp"
         target="_blank"
         rel="noreferrer"
         title="Chat on WhatsApp"
+        onClick={(e) => {
+          // Extra fallback for desktop: try app deep link first, then web
+          if (!isMobile) {
+            const deep = `whatsapp://send?phone=${WA_NUMBER}&text=${WA_TEXT}`;
+            // attempt app open
+            window.location.href = deep;
+            // fallback to web after a short delay
+            setTimeout(
+              () => window.open(waWeb, "_blank", "noopener,noreferrer"),
+              400
+            );
+            e.preventDefault();
+          }
+        }}
       >
         <WhatsappIcon />
       </a>
