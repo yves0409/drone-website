@@ -199,3 +199,29 @@ form {
 .text-warning {
   color: #fcbf49 !important;
 }
+
+/* Keep submit area above any floating elements */
+.contact-flyguys-style .d-grid {
+  position: relative;
+  z-index: 5;
+}
+
+/* Float WA normally on desktop */
+.floating-whatsapp {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 4; /* lower than the submit's z-index */
+}
+
+/* On phones, lift WA higher so it can't overlap the submit button */
+@media (max-width: 768px) {
+  .floating-whatsapp {
+    bottom: 96px; /* move it up */
+  }
+
+  /* give some breathing room at the bottom of the contact section */
+  #booking.contact-flyguys-style {
+    padding-bottom: 120px;
+  }
+}
