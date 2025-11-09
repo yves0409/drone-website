@@ -1,12 +1,35 @@
-import React from "react";
+// src/pages/OurMissionPage.js
+import React, { useEffect, useState } from "react";
 import "../css/OurMission.css";
 import missionBg from "../assets/rome.png";
 import { useTranslation } from "react-i18next";
 import { FaCrosshairs, FaEye, FaPaperPlane } from "react-icons/fa";
 import CustomHomeButton from "../components/CustomHomeButton";
+import SkeletonSection from "../components/SkeletonSection";
 
 const OurMissionPage = () => {
-  const { t } = useTranslation("common");
+  // Don’t use Suspense here; we’ll control loading ourselves
+  const { t, i18n, ready } = useTranslation("common", { useSuspense: false });
+  const [bgLoaded, setBgLoaded] = useState(false);
+
+  // Preload background image
+  useEffect(() => {
+    const img = new Image();
+    img.src = missionBg;
+    if (img.complete) {
+      setBgLoaded(true);
+    } else {
+      img.onload = () => setBgLoaded(true);
+      img.onerror = () => setBgLoaded(true); // fail open so we don’t hang
+    }
+  }, []);
+
+  const isReady = ready || i18n?.isInitialized; // compat
+
+  // Show skeleton until both are ready
+  if (!isReady || !bgLoaded) {
+    return <SkeletonSection />;
+  }
 
   return (
     <section
@@ -26,11 +49,8 @@ const OurMissionPage = () => {
       <div className="container text-center px-3">
         <div className="mission-overlay" />
         <div className="mission-content position-relative z-2">
-          <h1 className=" display-4 mb-4">{t("mission_title")}</h1>
-          <p
-            className="fs-5 text-light mx-auto mb-5"
-            style={{ maxWidth: "800px" }}
-          >
+          <h1 className="display-4 mb-4">{t("mission_title")}</h1>
+          <p className="fs-5 text-light mx-auto mb-5" style={{ maxWidth: 800 }}>
             {t("mission_text")}
           </p>
 

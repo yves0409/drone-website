@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../css/ContactInfoPage.css";
 import {
   FaInstagram,
-  FaFacebook,
-  FaLinkedin,
+  // FaFacebook,
+  // FaLinkedin,
   FaWhatsapp,
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
@@ -13,6 +13,14 @@ const SUPPORT_EMAIL = process.env.REACT_APP_SUPPORT_EMAIL || "info@airgrid.be";
 
 const ContactInfoPage = () => {
   const { t } = useTranslation("contact");
+  const [mapLoaded, setMapLoaded] = useState(false);
+
+  // Fail-open in case onLoad never fires (adblock, network, etc.)
+  useEffect(() => {
+    const id = setTimeout(() => setMapLoaded(true), 6000);
+    return () => clearTimeout(id);
+  }, []);
+
   return (
     <section id="contact-info">
       <div className="position-absolute top-0 start-0 m-4">
@@ -37,7 +45,7 @@ const ContactInfoPage = () => {
               <li>
                 <strong>📞 {t("contact_phone")}:</strong>{" "}
                 <a
-                  href="tel:+32 478/531692"
+                  href="tel:+32478531692"
                   className="text-decoration-none text-dark"
                 >
                   +32 478 531 692
@@ -48,6 +56,7 @@ const ContactInfoPage = () => {
                 <strong>📧 {t("contact_email")}:</strong>{" "}
                 <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
               </li>
+
               <li>
                 <span className="contact-icon">🆔</span>{" "}
                 <strong>{t("contact_registration")}:</strong> BE 0810 881 792
@@ -69,7 +78,7 @@ const ContactInfoPage = () => {
                 >
                   <FaInstagram />
                 </a>
-                <a
+                {/* <a
                   href="https://facebook.com"
                   className="social-icon facebook"
                   target="_blank"
@@ -86,11 +95,9 @@ const ContactInfoPage = () => {
                   title="LinkedIn"
                 >
                   <FaLinkedin />
-                </a>
-
+                </a> */}
                 <a
-                  href="https://wa.me/32478531692?text=Hello%20AirGrid%2C%20I'm%20interested%20in%20drone%20services
-                  "
+                  href="https://wa.me/32478531692?text=Hello%20AirGrid%2C%20I'm%20interested%20in%20drone%20services"
                   className="social-icon whatsapp"
                   target="_blank"
                   rel="noreferrer"
@@ -105,17 +112,28 @@ const ContactInfoPage = () => {
           <div className="col-md-6">
             <div
               className="rounded shadow overflow-hidden"
-              style={{ height: "400px" }}
+              style={{ height: "400px", position: "relative" }}
             >
+              {/* Skeleton shown until iframe onLoad */}
+              {!mapLoaded && (
+                <div
+                  className="skeleton-map"
+                  role="status"
+                  aria-busy="true"
+                  aria-label="Loading map…"
+                />
+              )}
+
               <iframe
                 title="AirGrid Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2532.660926712495!2d2.909471476812598!3d51.23020727175132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47dc197b2c8e0a39%3A0xc9ffbf04cb688d2b!2sOstend%2C%20Belgium!5e0!3m2!1sen!2sbe!4v1715851760004!5m2!1sen!2sbe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2532.660926712495!2d2.909471476812598!3d51.23020707175132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47dc197b2c8e0a39%3A0xc9ffbf04cb688d2b!2sOstend%2C%20Belgium!5e0!3m2!1sen!2sbe!4v1715851760004!5m2!1sen!2sbe"
                 width="100%"
                 height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
+                style={{ border: 0, display: mapLoaded ? "block" : "none" }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+                onLoad={() => setMapLoaded(true)}
               />
             </div>
           </div>
