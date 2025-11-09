@@ -180,31 +180,34 @@
 }
 
 /* Grid fix overrides */
-.aerial-wrapper .grid-container {
+/* Real Estate page: force a resilient 4/2/1 grid */
+.realestate-wrapper .grid-container {
   display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: clamp(1rem, 0.75rem + 1vw, 2rem);
   max-width: 1200px;
+  padding: 1rem 2rem;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  width: 100%;
   box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
-  .aerial-wrapper .grid-container {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .realestate-wrapper .grid-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
 
 @media (max-width: 600px) {
-  .aerial-wrapper .grid-container {
-    grid-template-columns: minmax(0, 1fr);
+  .realestate-wrapper .grid-container {
+    grid-template-columns: minmax(0, 1fr) !important;
   }
 }
 
-.grid-card {
-  flex: initial !important;
+/* Ensure cards can shrink and never force a wrap */
+.realestate-wrapper .grid-card {
   max-width: none !important;
-  min-width: 0;
+  min-width: 0; /* critical for text/images */
+  overflow-wrap: anywhere; /* avoid long string blowups */
   box-sizing: border-box;
 }
