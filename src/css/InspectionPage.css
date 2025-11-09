@@ -148,7 +148,7 @@
 
 /* Grid fix overrides */
 /* Real Estate page: force a resilient 4/2/1 grid */
-.realestate-wrapper .grid-container {
+.inspection-wrapper .grid-container {
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   gap: clamp(1rem, 0.75rem + 1vw, 2rem);
@@ -160,19 +160,19 @@
 }
 
 @media (max-width: 1024px) {
-  .realestate-wrapper .grid-container {
+  .inspection-wrapper .grid-container {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
 
 @media (max-width: 600px) {
-  .realestate-wrapper .grid-container {
+  .inspection-wrapper .grid-container {
     grid-template-columns: minmax(0, 1fr) !important;
   }
 }
 
 /* Ensure cards can shrink and never force a wrap */
-.realestate-wrapper .grid-card {
+.inspection-wrapper .grid-card {
   max-width: none !important;
   min-width: 0; /* critical for text/images */
   overflow-wrap: anywhere; /* avoid long string blowups */
