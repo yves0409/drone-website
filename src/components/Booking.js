@@ -4,12 +4,7 @@ import "../css/Booking.css";
 import { useLocation } from "react-router-dom";
 import { useTopic } from "../context/TopicContext";
 import { loadScript } from "../utils/LoadScript";
-import {
-  InstagramIcon,
-  FacebookIcon,
-  LinkedinIcon,
-  WhatsappIcon,
-} from "./SocialIcon";
+import { InstagramIcon, WhatsappIcon } from "./SocialIcon";
 
 const ReCAPTCHA = React.lazy(() => import("react-google-recaptcha"));
 const RECAPTCHA_SRC = "https://www.google.com/recaptcha/api.js";
@@ -226,24 +221,6 @@ const Booking = () => {
                 >
                   <InstagramIcon />
                 </a>
-                {/* <a
-                  href="https://facebook.com"
-                  className="social-icon facebook"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Facebook"
-                >
-                  <FacebookIcon />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  className="social-icon linkedin"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="LinkedIn"
-                >
-                  <LinkedinIcon />
-                </a> */}
               </div>
             </div>
           </div>
