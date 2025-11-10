@@ -70,67 +70,40 @@ const ContactInfoPage = () => {
 
               <div className="social-icon-row">
                 <a
-                  id="contact-ig"
-                  href="https://www.instagram.com/airgrid_drones/"
+                  href="https://instagram.com"
+                  className="social-icon instagram"
                   target="_blank"
                   rel="noreferrer"
-                  aria-label="Follow AirGrid on Instagram"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: "50%",
-                    background:
-                      "radial-gradient(circle at 30% 30%, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5)",
-                    color: "#fff",
-                    boxShadow: "0 10px 24px rgba(0,0,0,.18)",
-                    transition: "transform .2s ease, box-shadow .2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "scale(1.05)";
-                    e.currentTarget.style.boxShadow =
-                      "0 14px 28px rgba(0,0,0,.25)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "scale(1)";
-                    e.currentTarget.style.boxShadow =
-                      "0 10px 24px rgba(0,0,0,.18)";
-                  }}
+                  title="Instagram"
                 >
                   <FaInstagram />
                 </a>
-
-                <a
-                  id="contact-wa"
-                  href="https://wa.me/32478531692?text=Hello%20AirGrid%2C%20I'm%20interested%20in%20drone%20services"
+                {/* <a
+                  href="https://facebook.com"
+                  className="social-icon facebook"
                   target="_blank"
                   rel="noreferrer"
-                  aria-label="Chat with AirGrid on WhatsApp"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "3.5rem",
-                    height: "3.5rem",
-                    borderRadius: "50%",
-                    background:
-                      "radial-gradient(circle at 30% 30%, #6afc8b, #25d366, #1ebe5b, #128c7e, #075e54)",
-                    color: "#fff",
-                    boxShadow: "0 10px 24px rgba(0,0,0,.18)",
-                    transition: "transform .2s ease, box-shadow .2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "scale(1.05)";
-                    e.currentTarget.style.boxShadow =
-                      "0 14px 28px rgba(0,0,0,.25)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "scale(1)";
-                    e.currentTarget.style.boxShadow =
-                      "0 10px 24px rgba(0,0,0,.18)";
-                  }}
+                  title="Facebook"
                 >
-                  <FaWhatsapp style={{ width: "1.5rem", height: "1.5rem" }} />
+                  <FaFacebook />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  className="social-icon linkedin"
+                  target="_blank"
+                  rel="noreferrer"
+                  title="LinkedIn"
+                >
+                  <FaLinkedin />
+                </a> */}
+                <a
+                  href="https://wa.me/32478531692?text=Hello%20AirGrid%2C%20I'm%20interested%20in%20drone%20services"
+                  className="social-icon whatsapp"
+                  target="_blank"
+                  rel="noreferrer"
+                  title="WhatsApp"
+                >
+                  <FaWhatsapp />
                 </a>
               </div>
             </div>
