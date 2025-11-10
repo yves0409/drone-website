@@ -68,40 +68,25 @@ const ContactInfoPage = () => {
                 {t("contact_connect")}
               </h6>
 
-              <div className="social-icon-row">
+              <div className="d-flex justify-content-center gap-3">
+                {/* Instagram */}
                 <a
-                  href="https://instagram.com"
-                  className="social-icon instagram"
+                  id="contact-ig"
+                  href="https://www.instagram.com/airgrid_drones/"
                   target="_blank"
                   rel="noreferrer"
-                  title="Instagram"
+                  aria-label="Follow AirGrid on Instagram"
                 >
                   <FaInstagram />
                 </a>
-                {/* <a
-                  href="https://facebook.com"
-                  className="social-icon facebook"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Facebook"
-                >
-                  <FaFacebook />
-                </a>
+
+                {/* WhatsApp */}
                 <a
-                  href="https://linkedin.com"
-                  className="social-icon linkedin"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="LinkedIn"
-                >
-                  <FaLinkedin />
-                </a> */}
-                <a
+                  id="contact-wa"
                   href="https://wa.me/32478531692?text=Hello%20AirGrid%2C%20I'm%20interested%20in%20drone%20services"
-                  className="social-icon whatsapp"
                   target="_blank"
                   rel="noreferrer"
-                  title="WhatsApp"
+                  aria-label="Chat with AirGrid on WhatsApp"
                 >
                   <FaWhatsapp />
                 </a>

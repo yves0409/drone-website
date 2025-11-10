@@ -225,3 +225,123 @@ form {
     padding-bottom: 120px;
   }
 }
+
+/* Floating WhatsApp — glossy circular badge */
+.floating-whatsapp {
+  --icon-size: 3.25rem;
+  --glyph-size: 1.35rem;
+
+  width: var(--icon-size);
+  height: var(--icon-size);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: radial-gradient(
+    circle at 30% 30%,
+    #6afc8b,
+    #25d366,
+    #1ebe5b,
+    #128c7e,
+    #075e54
+  );
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-whatsapp svg {
+  width: var(--glyph-size);
+  height: var(--glyph-size);
+  display: block;
+}
+
+.floating-whatsapp:hover,
+.floating-whatsapp:focus-visible {
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+  outline: none;
+}
+
+@media (max-width: 576px) {
+  .floating-whatsapp {
+    --icon-size: 2.9rem;
+    --glyph-size: 1.2rem;
+  }
+}
+
+/* === Booking page: Instagram badge (isolated) === */
+#booking #booking-ig {
+  --icon-size: 3.25rem; /* desktop default */
+  --glyph-size: 1.35rem;
+
+  width: var(--icon-size);
+  height: var(--icon-size);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* IG gradient + icon color */
+  background: radial-gradient(
+    circle at 30% 30%,
+    #feda75,
+    #fa7e1e,
+    #d62976,
+    #962fbf,
+    #4f5bd5
+  );
+  color: #fff;
+
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#booking #booking-ig svg {
+  width: var(--glyph-size);
+  height: var(--glyph-size);
+  display: block;
+}
+
+/* Hover/focus */
+#booking #booking-ig:hover,
+#booking #booking-ig:focus-visible {
+  transform: scale(1.05);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #booking #booking-ig {
+    transition: none;
+  }
+}
+
+/* Responsive size (smaller on phones) */
+@media (max-width: 576px) {
+  #booking #booking-ig {
+    --icon-size: 2.6rem;
+    --glyph-size: 1.15rem;
+  }
+}
+
+/* Booking: center the title and the icon on the same axis */
+#booking .connect-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* <- centers the icon under the title */
+  text-align: center;
+}
+
+#booking .connect-wrap .icon-row {
+  display: flex;
+  justify-content: center; /* extra safety */
+  margin-top: 0.75rem; /* adjust spacing under the title */
+}
+
+/* If your column has left padding pushing the icon, neutralize it here */
+#booking .connect-wrap .icon-row {
+  padding-left: 0;
+}

@@ -255,3 +255,77 @@ a[href^="mailto:"]:hover {
     animation: none;
   }
 }
+
+/* === Social badges (isolated) === */
+#contact-ig,
+#contact-wa {
+  --icon-size: 3.25rem; /* desktop default */
+  --glyph-size: 1.35rem;
+
+  width: var(--icon-size);
+  height: var(--icon-size);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#contact-ig svg,
+#contact-wa svg {
+  width: var(--glyph-size);
+  height: var(--glyph-size);
+  display: block;
+}
+
+/* Brand gradients */
+#contact-ig {
+  background: radial-gradient(
+    circle at 30% 30%,
+    #feda75,
+    #fa7e1e,
+    #d62976,
+    #962fbf,
+    #4f5bd5
+  );
+}
+#contact-wa {
+  background: radial-gradient(
+    circle at 30% 30%,
+    #6afc8b,
+    #25d366,
+    #1ebe5b,
+    #128c7e,
+    #075e54
+  );
+}
+
+/* Hover/focus */
+#contact-ig:hover,
+#contact-ig:focus-visible,
+#contact-wa:hover,
+#contact-wa:focus-visible {
+  transform: scale(1.05);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #contact-ig,
+  #contact-wa {
+    transition: none;
+  }
+}
+
+/* Responsive sizes */
+@media (max-width: 576px) {
+  #contact-ig,
+  #contact-wa {
+    --icon-size: 2.6rem;
+    --glyph-size: 1.15rem;
+  }
+}

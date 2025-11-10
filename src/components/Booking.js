@@ -202,22 +202,25 @@ const Booking = () => {
   return (
     <section id="booking" className="contact-flyguys-style text-light">
       <div className="container px-4 py-5">
-        <div className="row g-5 align-items-start">
+        <div className="row g-5 ">
           {/* === LEFT COLUMN === */}
           <div className="col-lg-6 text-start">
-            <h2 className="section-heading-label">{t("contact_label")}</h2>
-            <h1 className="display-5 fw-bold mb-4">{t("contact_heading")}</h1>
-            <p className="lead">{t("contact_subtext")}</p>
+            <h2 className="section-heading-label mb-5 ">
+              {t("contact_label")}
+            </h2>
+            <h1 className="display-5 bold mb-5 ">{t("contact_heading")}</h1>
+            <p className="lead mb-5">{t("contact_subtext")}</p>
 
-            <div className="mt-4">
-              <h6 className="fw-semibold mb-2">{t("contact_connect")}</h6>
-              <div className="d-flex gap-3 fs-4">
+            <div className="connect-wrap">
+              <h6 className="connect-title text-center">Or Connect with us</h6>
+
+              <div className="icon-row">
                 <a
+                  id="booking-ig"
                   href="https://www.instagram.com/airgrid_drones/"
-                  className="social-icon instagram"
                   target="_blank"
                   rel="noreferrer"
-                  title="Instagram"
+                  aria-label="Follow AirGrid on Instagram"
                 >
                   <InstagramIcon />
                 </a>

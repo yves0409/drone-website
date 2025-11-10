@@ -50,7 +50,7 @@ body {
 
 /* --- Global type scale lock (smaller) --- */
 html {
-  font-size: 15px !important;
+  font-size: 14px !important;
 } /* was 16px; all rems get ~6% smaller */
 :root {
   --bs-body-font-size: 0.95rem !important;
