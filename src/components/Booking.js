@@ -226,7 +226,7 @@ const Booking = () => {
                 >
                   <InstagramIcon />
                 </a>
-                <a
+                {/* <a
                   href="https://facebook.com"
                   className="social-icon facebook"
                   target="_blank"
@@ -243,7 +243,7 @@ const Booking = () => {
                   title="LinkedIn"
                 >
                   <LinkedinIcon />
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
