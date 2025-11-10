@@ -208,16 +208,39 @@ const Booking = () => {
             <h2 className="section-heading-label">{t("contact_label")}</h2>
             <h1 className="display-5 fw-bold mb-4">{t("contact_heading")}</h1>
             <p className="lead">{t("contact_subtext")}</p>
-
+            {/* IG */}
             <div className="mt-4">
-              <h6 className="fw-semibold mb-2">{t("contact_connect")}</h6>
-              <div className="d-flex gap-3 fs-4">
+              <h6 className="fw-semibold mb-2 connect-title d-flex justify-content-center">
+                {t("contact_connect")}
+              </h6>
+              <div className="d-flex justify-content-center">
                 <a
+                  id="booking-ig"
                   href="https://www.instagram.com/airgrid_drones/"
-                  className="social-icon instagram"
                   target="_blank"
                   rel="noreferrer"
-                  title="Instagram"
+                  aria-label="Follow AirGrid on Instagram"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "50%",
+                    background:
+                      "radial-gradient(circle at 30% 30%, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5)",
+                    color: "#fff",
+                    boxShadow: "0 10px 24px rgba(0,0,0,.18)",
+                    transition: "transform .2s ease, box-shadow .2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.05)";
+                    e.currentTarget.style.boxShadow =
+                      "0 14px 28px rgba(0,0,0,.25)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.boxShadow =
+                      "0 10px 24px rgba(0,0,0,.18)";
+                  }}
                 >
                   <InstagramIcon />
                 </a>

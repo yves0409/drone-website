@@ -255,3 +255,27 @@ a[href^="mailto:"]:hover {
     animation: none;
   }
 }
+
+#contact-ig,
+#contact-wa {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+#contact-ig svg,
+#contact-wa svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@media (max-width: 576px) {
+  #contact-ig,
+  #contact-wa {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  #contact-ig svg,
+  #contact-wa svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
