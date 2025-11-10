@@ -47,3 +47,15 @@ body {
     transition: opacity 0.15s ease;
   }
 }
+
+/* --- Global type scale lock (smaller) --- */
+html {
+  font-size: 15px !important;
+} /* was 16px; all rems get ~6% smaller */
+:root {
+  --bs-body-font-size: 0.95rem !important;
+} /* Bootstrap base */
+body {
+  font-size: var(--bs-body-font-size) !important;
+  line-height: 1.5;
+}
