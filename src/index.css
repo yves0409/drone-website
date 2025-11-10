@@ -14,6 +14,17 @@ body {
   height: 100%;
 }
 
+/* changes */
+
+html {
+  font-size: 16px !important;
+}
+body {
+  font-size: 1rem;
+} /* keep Bootstrap’s default scale */
+
+/* end changes */
+
 /* If your top wrapper adds padding, clear it */
 #root,
 .app,
