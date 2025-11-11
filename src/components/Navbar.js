@@ -129,8 +129,8 @@ const Navbar = () => {
               src="/assets/ag-logo-black.svg"
               alt="AirGrid — Creative Solutions"
               className="brand-logo"
-              width={220} /* tweak or remove; CSS can control size */
-              height={220} /* optional; safe to omit if CSS sets height */
+              // width={220}
+              // height={220}
               decoding="async"
               loading="eager"
             />
