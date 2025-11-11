@@ -117,7 +117,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-xl transparent-navbar position-absolute top-0 start-0 w-100 px-4">
+    <nav className="navbar navbar-expand-xl transparent-navbar position-absolute top-0 start-0 w-100 px-4 py-2">
       <div className="container-fluid">
         <Link
           className="navbar-brand d-flex align-items-center"

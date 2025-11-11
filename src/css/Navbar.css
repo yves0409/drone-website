@@ -67,13 +67,13 @@
   box-shadow: none;
 }
 
-.dropdown-menu .dropdown-item:hover {
+/* .dropdown-menu .dropdown-item:hover {
   background-color: transparent;
   text-decoration: underline;
   text-decoration-thickness: 4px;
   text-decoration-style: solid;
   text-decoration-color: #c56c29;
-}
+} */
 
 /* ===== CTA button variant ===== */
 .btn-slide-icon-2 {
@@ -226,7 +226,7 @@
 
   .navbar .nav-item.dropdown > .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: 125%;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     width: max-content;

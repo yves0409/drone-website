@@ -36,7 +36,7 @@ const About = () => {
               {/* <h6 className="text-uppercase text-warning fw-semibold mb-2">
                 Who Are We
               </h6> */}
-              <h2 className="text-uppercase text-warning">
+              <h2 className="text-uppercase text-warning mb-4">
                 {t("about_heading")}
               </h2>
               <p className="fw-medium mt-2 mb-0 text-light">
