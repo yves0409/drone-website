@@ -22,10 +22,12 @@ import { TopicProvider } from "./context/TopicContext";
 import PrivacyPolicy from "./pages/PrivacyPolicyPage";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import usePageViews from "./analytics/usePageViews";
 
 const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  usePageViews("G-SBVCJYYHJF");
 
   // A) Disable browser scroll history memory between routes
   useEffect(() => {
@@ -105,10 +107,9 @@ const App = () => {
           <Route path="/services/real-estate" element={<RealEstatePage />} />
           <Route path="/services/construction" element={<ConstructionPage />} />
           <Route path="/about/mission" element={<OurMissionPage />} />
-          <Route path="/services/construction" element={<ConstructionPage />} />
           <Route path="/about/team" element={<OurTeamPage />} />
           <Route path="/contact-details" element={<ContactInfoPage />} />
-          <Route path="services/events" element={<WeddingsAndEventsPage />} />
+          <Route path="/services/events" element={<WeddingsAndEventsPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
         <ScrollToTopButton />

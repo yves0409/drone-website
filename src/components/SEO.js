@@ -20,42 +20,55 @@
 
 // src/components/SEO.js
 import React from "react";
-import { Helmet } from "react-helmet"; // keep this if you're already using it
-import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 
-const SITE = "https://airgrid.be"; // <-- choose your ONE preferred base
+const SITE = "https://airgrid.be";
 
 function normalizePath(pathname) {
-  // remove trailing slash except for root
-  const p = pathname.replace(/\/+$/, "");
+  let p = pathname.replace(/\/index\.html$/i, ""); // strip /index.html
+  p = p.replace(/\/+$/, ""); // strip trailing slash (except root)
   return p === "" ? "/" : p;
+}
+
+// Safe location hook (won't crash if used above Router)
+function useSafeLocation() {
+  try {
+    return useLocation();
+  } catch {
+    return {
+      pathname: typeof window !== "undefined" ? window.location.pathname : "/",
+    };
+  }
 }
 
 export default function SEO({ namespace, canonicalOverride }) {
   const { t } = useTranslation(namespace);
-  const { pathname } = useLocation();
+  const { pathname } = useSafeLocation();
 
-  // 1) build a stable canonical from the current route
   const path = normalizePath(pathname);
   const autoCanonical = `${SITE}${path}`;
 
-  // 2) allow an explicit override (rare) or use i18n value *if it is absolute URL*
   const i18nCanonical = t("meta.canonical", { defaultValue: "" });
   const canonical =
     canonicalOverride ||
     (i18nCanonical?.startsWith("http") ? i18nCanonical : autoCanonical);
 
+  const title = t("meta.title", { defaultValue: "AirGrid" });
+  const desc = t("meta.description", {
+    defaultValue: "Drone services by AirGrid.",
+  });
+  const keys = t("meta.keywords", { defaultValue: "airgrid, drones" });
+  const lang = t("lang_code", { ns: "common", defaultValue: "en" });
+
   return (
-    <Helmet
-      htmlAttributes={{
-        lang: t("lang_code", { ns: "common", defaultValue: "en" }),
-      }}
-    >
-      <title>{t("meta.title")}</title>
-      <meta name="description" content={t("meta.description")} />
-      <meta name="keywords" content={t("meta.keywords")} />
+    <Helmet htmlAttributes={{ lang }}>
+      <title>{title}</title>
+      <meta name="description" content={desc} />
+      <meta name="keywords" content={keys} />
       <link rel="canonical" href={canonical} />
+      <meta property="og:url" content={canonical} />
     </Helmet>
   );
 }
