@@ -1,0 +1,87 @@
+/* AirGrid 404 */
+.notfound {
+  min-height: 100vh;
+  background: #f4efe7; /* your sand tone */
+  color: #1f1f1f;
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0 4rem;
+}
+
+/* Soft vignette + subtle pattern overlay (optional, remove if you prefer flat) */
+.notfound::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+      1200px 600px at 50% 0%,
+      rgba(0, 0, 0, 0.06),
+      transparent 60%
+    ),
+    radial-gradient(
+      800px 400px at 100% 100%,
+      rgba(0, 0, 0, 0.04),
+      transparent 60%
+    );
+}
+
+/* Drone badge */
+.nf-badge {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #feda75,
+    #fa7e1e,
+    #d62976,
+    #962fbf,
+    #4f5bd5
+  );
+  display: grid;
+  place-items: center;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  animation: floaty 3s ease-in-out infinite;
+}
+
+.nf-drone {
+  width: 40px;
+  height: 40px;
+  display: block;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.18));
+}
+
+/* gentle hover/fly motion */
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .nf-badge {
+    animation: none;
+  }
+}
+
+/* Small screens tweak */
+@media (max-width: 576px) {
+  .notfound {
+    padding: 5rem 0 3rem;
+  }
+  .nf-badge {
+    width: 84px;
+    height: 84px;
+  }
+  .nf-drone {
+    width: 36px;
+    height: 36px;
+  }
+}

@@ -23,6 +23,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicyPage";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import usePageViews from "./analytics/usePageViews";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const App = () => {
   const location = useLocation();
@@ -111,6 +112,7 @@ const App = () => {
           <Route path="/contact-details" element={<ContactInfoPage />} />
           <Route path="/services/events" element={<WeddingsAndEventsPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <ScrollToTopButton />
 
