@@ -329,3 +329,15 @@ a[href^="mailto:"]:hover {
     --glyph-size: 1.15rem;
   }
 }
+
+/* Mobile only: hide labels like "Company:", "Phone:" etc. */
+@media (max-width: 768px) {
+  .contact-list strong {
+    display: none;
+  }
+
+  /* Optional: tighten spacing after the emoji */
+  .contact-icon {
+    margin-right: 0.35rem;
+  }
+}

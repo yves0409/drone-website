@@ -38,12 +38,12 @@ const ContactInfoPage = () => {
             <ul className="list-unstyled fs-5 contact-list">
               <li>
                 <span className="contact-icon">📍</span>{" "}
-                <strong>{t("contact_company")}:</strong> AirGrid (Supported By
-                Staterslabo West-Vlaanderen CV)
+                <strong>{t("contact_company")}:</strong> AirGrid
               </li>
 
               <li>
-                <strong>📞 {t("contact_phone")}:</strong>{" "}
+                <span className="contact-icon">📞</span>{" "}
+                <strong> {t("contact_phone")}:</strong>{" "}
                 <a
                   href="tel:+32478531692"
                   className="text-decoration-none text-dark"
@@ -53,7 +53,8 @@ const ContactInfoPage = () => {
               </li>
 
               <li>
-                <strong>📧 {t("contact_email")}:</strong>{" "}
+                <span className="contact-icon">📧</span>{" "}
+                <strong> {t("contact_email")}:</strong>{" "}
                 <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
               </li>
 
@@ -62,6 +63,10 @@ const ContactInfoPage = () => {
                 <strong>{t("contact_registration")}:</strong> BE 0810 881 792
               </li>
             </ul>
+            <span>
+              ( Supported By Starterslabo West-Vlaanderen CV, Spinnerijstraat
+              107, 8500 Kortrijk )
+            </span>
 
             <div className="mt-4 text-center">
               <h6 className="fw-semibold mb-2 connect-title">
