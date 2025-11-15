@@ -341,3 +341,16 @@ a[href^="mailto:"]:hover {
     margin-right: 0.35rem;
   }
 }
+
+/* Hard reset for this list */
+.contact-list {
+  display: block !important;
+}
+
+.contact-list li {
+  display: block !important;
+}
+
+.contact-icon {
+  display: inline !important;
+}

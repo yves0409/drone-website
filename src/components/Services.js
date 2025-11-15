@@ -15,7 +15,7 @@ const Services = () => {
     <section id="services" className="text-center">
       <div
         className="container d-flex flex-column justify-content-center align-items-center"
-        style={{ minHeight: "60vh" }}
+        style={{ minHeight: "90vh" }}
       >
         <h2 className="mb-5">{t("services")}</h2>
 
