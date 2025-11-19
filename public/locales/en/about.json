@@ -6,6 +6,14 @@
     "canonical": "https://www.AirGrid.be/about"
   },
 
-  "about_text": "At AirGrid, we specialize in capturing the extraordinary from above. With a background in real estate and over a decade of experience in drone photography, we turn aerial footage into immersive experiences that help properties sell faster and shine brighter.",
-  "about_heading": "A Passion for Perspective"
+  "about_heading": "A Passion for Perspective",
+  "about_text": "We’re a drone-powered creative studio capturing spaces, stories, and scenes from above. Rooted in real estate and driven by design, we turn ordinary perspectives into standout visuals. From homes to high-rises, groundbreakings to grand openings, we deliver clean, cinematic imagery with precision and purpose. Whether you're selling, showcasing, or storytelling. AirGrid elevates the way people see your world",
+  "about_why_text": "We believe quality visuals shouldn’t come with unpredictable pricing or inconsistent service. At AirGrid, we combine cinematic craftsmanship, best-in-class drone practices, and transparent, fair pricing. Every flight is backed by full compliance with Belgian drone regulations and years of visual storytelling experience. You’re not just hiring a drone, you’re investing in a creative partner.",
+
+  "about_me_text": "I got into drones a few years ago. What started as a hobby quickly evolved into a creative passion and a business: capturing aerial visuals that feel cinematic but grounded in purpose. I bring more than just flight skills, I bring an eye for detail, a feel for composition, and a love for telling stories from above. Whether it’s a cozy home or a commercial development, I’m here to help you see it differently.",
+  "about_locations_text": "We currently operate across West Flanders and East Flanders, Belgium, including but not limited to:West Flanders: Knokke, Bruges, Kortrijk, Roeselare, Ostend, etc. Looking for a location not listed? Reach out, we’re flexible and expanding!",
+  "about_title": "the company",
+  "about_why_title": "why us",
+  "about_me_title": "about me",
+  "about_locations_title": "locations we serve"
 }

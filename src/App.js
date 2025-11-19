@@ -24,6 +24,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import usePageViews from "./analytics/usePageViews";
 import NotFoundPage from "./pages/NotFoundPage";
+// import ChatWidget from "./components/ChatWidget";
 
 const App = () => {
   const location = useLocation();
@@ -79,6 +80,7 @@ const App = () => {
 
   return (
     <>
+      {/* <ChatWidget /> */}
       <TopicProvider>
         {!hideNavbar && <Navbar />}
         {/* <ScrollToTop /> */}

@@ -89,17 +89,6 @@ const Services = () => {
           </div>
         </div>
       </div>
-      <svg
-        className="section-divider"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-        preserveAspectRatio="none"
-      >
-        <path
-          fill="#6e5b47"
-          d="M0,224C120,160,360,0,720,32C1080,64,1320,160,1440,192V320H0Z"
-        />
-      </svg>
     </section>
   );
 };
