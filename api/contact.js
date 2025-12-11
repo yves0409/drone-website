@@ -223,15 +223,47 @@ export default async function handler(req, res) {
     //
     // 2️⃣ AUTO-REPLY EMAIL BACK TO USER
     //
+    // const autoReplyHtml = `
+    //   <h2>Thank you for contacting AirGrid!</h2>
+    //   <p>Hi ${escapeHtml(firstName)},</p>
+    //   <p>We’ve received your message and will respond as soon as possible.</p>
+    //   <p><b>Summary of your message:</b></p>
+    //   <div>${escapeHtml(details).replace(/\n/g, "<br/>")}</div>
+    //   <br/>
+    //   <p>Best regards,<br/>AirGrid Team</p>
+    // `;
     const autoReplyHtml = `
-      <h2>Thank you for contacting AirGrid!</h2>
-      <p>Hi ${escapeHtml(firstName)},</p>
-      <p>We’ve received your message and will respond as soon as possible.</p>
-      <p><b>Summary of your message:</b></p>
-      <div>${escapeHtml(details).replace(/\n/g, "<br/>")}</div>
-      <br/>
-      <p>Best regards,<br/>AirGrid Team</p>
-    `;
+  <div style="font-family: Arial, sans-serif; color:#222; line-height:1.6;">
+
+    <!-- Logo -->
+    <div style="text-align:center; margin-bottom:20px;">
+      <img src="https://res.cloudinary.com/yves/image/upload/v1765480325/zifkxg6cdrsctyyctq18.png"
+           alt="AirGrid Logo"
+           style="width:200px; max-width:100%; display:block; margin:auto;" />
+    </div>
+
+    <h2 style="color:#d4a15e; text-align:center;">Bedankt voor uw bericht!</h2>
+
+    <p>Hi ${escapeHtml(firstName)},</p>
+
+    <p>
+      We hebben uw bericht goed ontvangen en nemen zo snel mogelijk contact met u op.<br/>
+      Meestal reageren we binnen <strong>24 uur</strong>.
+    </p>
+
+    <p><b>Samenvatting van uw bericht:</b></p>
+    <div>${escapeHtml(details).replace(/\n/g, "<br/>")}</div>
+
+    <br/>
+
+    <p>
+      Met vriendelijke groeten,<br/>
+      <strong>AirGrid Team</strong><br/>
+      <a href="https://www.airgrid.be" style="color:#d4a15e; text-decoration:none;">www.airgrid.be</a>
+    </p>
+
+  </div>
+`;
 
     const sendAutoReply = await fetch("https://api.resend.com/emails", {
       method: "POST",
