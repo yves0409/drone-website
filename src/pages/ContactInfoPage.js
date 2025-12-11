@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../css/ContactInfoPage.css";
-import {
-  FaInstagram,
-  // FaFacebook,
-  // FaLinkedin,
-  FaWhatsapp,
-} from "react-icons/fa";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import CustomHomeButton from "../components/CustomHomeButton";
 
